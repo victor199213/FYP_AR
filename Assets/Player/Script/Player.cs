@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public int hp;
     public int damage;
     FSM state;
+    public int healRange;
 
     void Start()
     {
