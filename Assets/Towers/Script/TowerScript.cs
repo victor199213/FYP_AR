@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Vuforia;
 
 public class TowerScript : MonoBehaviour
 {
 
-    public int hp;
+    public float hp;
+    private float maxHP;
     public int firerate;
     public int damage;
     private float timer;
     FSM turretState;
     public int towerType;
+    public Transform goal;
+    public GameObject tracker;
 
     enum FSM
     {
@@ -23,7 +27,8 @@ public class TowerScript : MonoBehaviour
     {
         turretState = FSM.IDLE;
         timer = 0;
-
+        maxHP = hp;
+        disableParticles();
     }
 
     void Update()
@@ -40,9 +45,21 @@ public class TowerScript : MonoBehaviour
                 break;
         }
 
-        if (hp < 0)
+        if (tracker.GetComponent<TrackableBehaviour>().CurrentStatus == TrackableBehaviour.Status.TRACKED)
+        {
+            snap();
+        }
+
+        detectPlayer();
+
+        if (hp <= 0)
         {
             turretState = FSM.DEAD;
+        }
+
+        if (hp > maxHP)
+        {
+            hp = maxHP;
         }
     }
 
@@ -67,5 +84,35 @@ public class TowerScript : MonoBehaviour
             }
         }
         turretState = FSM.IDLE;
+    }
+
+    void snap()
+    {
+        this.transform.parent.position = new Vector3(goal.transform.position.x, this.transform.parent.position.y, goal.transform.position.z);
+    }
+
+    void detectPlayer()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Vector3 diff = player.transform.position - transform.position;
+        float curDistance = diff.sqrMagnitude;
+        if (curDistance < player.GetComponent<Player>().healRange)
+        {
+            hp += 0.01f;
+            return;
+        }
+    }
+
+    void enableParticles()
+    {
+        if (this.gameObject.GetComponent<ParticleSystem>().isPlaying == false)
+        {
+            this.gameObject.GetComponent<ParticleSystem>().Play();
+        }
+    }
+
+    void disableParticles()
+    {
+        this.gameObject.GetComponent<ParticleSystem>().Stop();
     }
 }
