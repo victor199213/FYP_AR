@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class TitlePlayer : MonoBehaviour
 {
-
+    [SerializeField]
+    int TapTIme;
+    int CntTime =0;
     // Use this for initialization
     void Start()
     {
@@ -19,14 +21,31 @@ public class TitlePlayer : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider collider)
+    void OnTriggerStay(Collider collider)
     {
         Debug.Log("....当たった" + collider.gameObject.tag);
 
         if (collider.gameObject.tag == "GameStart")
         {
-            Debug.Log("Testing");
-            SceneManager.LoadScene("GamePlay",LoadSceneMode.Additive);
+
+            CntTime++;
+            if (CntTime >= TapTIme)
+            {
+                SceneManager.LoadScene("GamePlay");
+            }
         }
+        else if (collider.gameObject.tag == "Exit")
+        {
+            CntTime++;
+            if (CntTime >= TapTIme)
+            {
+                Application.Quit();
+            }
+        }
+        else if (collider.gameObject.tag != "Player")
+        {
+            CntTime = 0;
+        }
+      
     }
 }
