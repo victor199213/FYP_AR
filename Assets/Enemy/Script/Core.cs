@@ -10,13 +10,18 @@ public class Core : MonoBehaviour
     public Material[] materials;
     private int textureIndex;
     public int damageToCore;
-
+    [SerializeField]
+    GameObject MenuMaker;
+    Pausable PausableObjects;
+    SpawnManager SpawnManager;
     // Use this for initialization
     void Start ()
     {
         rend = GetComponent<Renderer>();
         rend.enabled = true;
         textureIndex = 0;
+        PausableObjects = GameObject.Find("PausableObjects").GetComponent<Pausable>();
+        SpawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
     }
 	
 	// Update is called once per frame
@@ -34,6 +39,13 @@ public class Core : MonoBehaviour
         if (col.collider.gameObject.tag == "Enemy")
         {
             hp -= damageToCore;
+        }
+        if (col.collider.gameObject.tag == "playerWaypoint" )
+        {
+            Debug.Log("pause");
+            SpawnManager.CancelInvoke();
+            PausableObjects.pausing = true;
+            Instantiate(MenuMaker);
         }
     }
 }

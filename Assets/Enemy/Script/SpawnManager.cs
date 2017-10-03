@@ -11,6 +11,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         InvokeRepeating("Spawn", spawnTime, spawnTime);
+ 
     }
 
 
