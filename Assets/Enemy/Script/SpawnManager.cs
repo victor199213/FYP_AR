@@ -17,17 +17,14 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
-<<<<<<< HEAD
         InvokeRepeating("Spawn", spawnTime, spawnTime);
  
-=======
         //InvokeRepeating("Spawn", spawnTime, spawnTime);
         tmpWaveDownTime = waveDownTime;
         tmpWaveDuration = waveDuration;
         waveCounter = 1;
         waveSwitch = true;
         TmpSpawnTimer = 0;
->>>>>>> 0da087e38496995ce2dd9436a05cbcdc26c03bbf
     }
 
     private void Update()
