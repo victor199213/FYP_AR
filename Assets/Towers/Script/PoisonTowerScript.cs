@@ -45,7 +45,7 @@ public class PoisonTowerScript : MonoBehaviour
                 break;
         }
 
-        if (tracker.GetComponent<TrackableBehaviour>().CurrentStatus == TrackableBehaviour.Status.TRACKED)
+        if (tracker.GetComponent<TrackableBehaviour>().CurrentStatus == TrackableBehaviour.Status.TRACKED && goal.GetComponent<TargetInsideWall>().insideWall == false)
         {
             snap();
         }
