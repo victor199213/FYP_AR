@@ -44,8 +44,8 @@ public class Core : MonoBehaviour
         {
             Debug.Log("pause");
             SpawnManager.CancelInvoke();
-            Instantiate(MenuMaker);
             PausableObjects.pausing = true;
+            Instantiate(MenuMaker);
         }
     }
 }
