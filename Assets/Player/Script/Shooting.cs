@@ -32,7 +32,7 @@ public class Shooting : MonoBehaviour
 
         float dis = Vector3.Distance(nearTarget.transform.position, this.transform.position);
 
-        if (fireTimer >= fireRate && fireReady == true)
+        if (fireTimer >= fireRate && fireReady == true && (nearTarget.transform.position != Vector3.zero))
         {
             float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position));
             if(angle < fieldOfView)
