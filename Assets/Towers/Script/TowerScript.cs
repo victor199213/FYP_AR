@@ -13,7 +13,7 @@ public class TowerScript : MonoBehaviour
     private float timer;
     FSM turretState;
     public int towerType;
-    public Transform goal;
+    public GameObject goal;
     public GameObject tracker;
 
     enum FSM
@@ -45,7 +45,7 @@ public class TowerScript : MonoBehaviour
                 break;
         }
 
-        if (tracker.GetComponent<TrackableBehaviour>().CurrentStatus == TrackableBehaviour.Status.TRACKED)
+        if (tracker.GetComponent<TrackableBehaviour>().CurrentStatus == TrackableBehaviour.Status.TRACKED && goal.GetComponent<TargetInsideWall>().insideWall == false)
         {
             snap();
         }
