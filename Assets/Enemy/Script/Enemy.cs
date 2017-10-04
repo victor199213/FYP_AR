@@ -135,15 +135,15 @@ public class Enemy : MonoBehaviour
         {
             if (col.collider.gameObject.GetComponentInChildren<TowerScript>())
             {
-                col.collider.gameObject.GetComponentInChildren<TowerScript>().hp -= 1;
+                col.collider.gameObject.GetComponentInChildren<TowerScript>().hp -= damage;
             }
             else if (col.collider.gameObject.GetComponentInChildren<ExplosiveTowerScript>())
             {
-                col.collider.gameObject.GetComponentInChildren<ExplosiveTowerScript>().hp -= 1;
+                col.collider.gameObject.GetComponentInChildren<ExplosiveTowerScript>().hp -= damage;
             }
             else if (col.collider.gameObject.GetComponentInChildren<PoisonTowerScript>())
             {
-                col.collider.gameObject.GetComponentInChildren<PoisonTowerScript>().hp -= 1;
+                col.collider.gameObject.GetComponentInChildren<PoisonTowerScript>().hp -= damage;
             }
             Destroy(this.gameObject);
         }

@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public int damage;
     FSM state;
     public int healRange;
+    public float healingRate;
 
     void Start()
     {
@@ -38,7 +39,7 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        agent.SetDestination(goal.transform.position);
+        agent.destination = goal.transform.position;
         Physics.IgnoreCollision(goal.GetComponent<Collider>(), GetComponent<Collider>());
         if (Vector3.Distance(this.gameObject.transform.position, goal.transform.position) < 10)
         {

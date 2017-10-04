@@ -10,7 +10,6 @@ public class ExplosiveTowerScript : MonoBehaviour
     private float maxHP;
     public int firerate;
     public int damage;
-    private float timer;
     FSM turretState;
     public int towerType;
     public Transform goal;
@@ -26,7 +25,6 @@ public class ExplosiveTowerScript : MonoBehaviour
     void Start()
     {
         turretState = FSM.IDLE;
-        timer = 0;
         maxHP = hp;
         disableParticles();
     }
@@ -62,7 +60,15 @@ public class ExplosiveTowerScript : MonoBehaviour
             hp = maxHP;
         }
     }
-
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.collider.gameObject.tag == "EnemyBullet")
+        {
+            GameObject enemyRange = GameObject.FindWithTag("EnemyRange");
+            EnemyRange tempEnemyRange = enemyRange.GetComponent<EnemyRange>();
+            hp -= tempEnemyRange.damage;
+        }
+    }
     void Attack()
     {
         Shooting shoot = this.GetComponent<Shooting>();
@@ -98,7 +104,7 @@ public class ExplosiveTowerScript : MonoBehaviour
         float curDistance = diff.sqrMagnitude;
         if (curDistance < player.GetComponent<Player>().healRange)
         {
-            hp += 0.01f;
+            hp += player.AddComponent<Player>().healingRate;
             return;
         }
     }
