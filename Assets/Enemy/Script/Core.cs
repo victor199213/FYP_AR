@@ -14,6 +14,9 @@ public class Core : MonoBehaviour
     GameObject MenuMaker;
     Pausable PausableObjects;
     SpawnManager SpawnManager;
+    private int coreStage2;
+    private int coreStage3;
+
     // Use this for initialization
     void Start ()
     {
@@ -22,12 +25,14 @@ public class Core : MonoBehaviour
         textureIndex = 0;
         PausableObjects = GameObject.Find("PausableObjects").GetComponent<Pausable>();
         SpawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        coreStage2 = (hp / 100) * 70;
+        coreStage3 = (hp / 100) * 30;
     }
 	
 	// Update is called once per frame
 	void Update ()
-    {
-		if(hp <= 0)
+    { 
+		if(hp <= coreStage3)
         {
             textureIndex = 1;
         }
