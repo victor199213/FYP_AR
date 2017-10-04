@@ -39,7 +39,6 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        agent.destination = new Vector3(0, this.transform.position.y, 0);
         agent.destination = goal.transform.position;
         Physics.IgnoreCollision(goal.GetComponent<Collider>(), GetComponent<Collider>());
         if (Vector3.Distance(this.gameObject.transform.position, goal.transform.position) < 10)
