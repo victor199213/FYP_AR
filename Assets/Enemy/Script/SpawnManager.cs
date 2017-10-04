@@ -44,6 +44,7 @@ public class SpawnManager : MonoBehaviour
                 var parent = Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
                 var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
                 parent.transform.parent = gameObject.transform;
+                parent2.transform.parent = gameObject.transform;
                 TmpSpawnTimer = 0;
             }
 
