@@ -104,7 +104,7 @@ public class ExplosiveTowerScript : MonoBehaviour
         float curDistance = diff.sqrMagnitude;
         if (curDistance < player.GetComponent<Player>().healRange)
         {
-            hp += player.AddComponent<Player>().healingRate;
+            hp += player.GetComponent<Player>().healingRate;
             return;
         }
     }
