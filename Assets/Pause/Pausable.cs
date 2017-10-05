@@ -94,7 +94,7 @@ public class Pausable : MonoBehaviour
         {
             monoBehaviour.enabled = false;
         }
-
+        
     }
 
     /// <summary>
