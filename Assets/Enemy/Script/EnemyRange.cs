@@ -234,5 +234,28 @@ public class EnemyRange : MonoBehaviour
     {
         poisoned = true;
     }
+
+    public int getFSM()
+    {
+        switch(enemyState)
+        {
+            case FSM.OBJECTIVE:
+                return 0;
+
+            case FSM.AGGRO:
+                return 1;
+
+            case FSM.CHASE:
+                return 2;
+
+            case FSM.ATTACK:
+                return 3;
+
+            case FSM.DEAD:
+                return 4;
+
+        }
+        return -1;
+    }
 }
 
