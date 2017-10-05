@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: 641d41c2dd2ea1444b5a6933ee46afec
+timeCreated: 1507167152
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Broken_Crates:pCube2
+    100002: Laser_Fence1:modelPanel3ViewSelectedSet_Laser_Fence1:pCube59_polySurface1
+    100004: Laser_Fence1:modelPanel3ViewSelectedSet_Laser_Fence1:pCube59_polySurface80
+    100006: pCube10
+    100008: pCube11
+    100010: pCube13
+    100012: pCube14
+    100014: pCube15
+    100016: pCylinder14
+    100018: pCylinder16
+    100020: pCylinder17
+    100022: pCylinder33
+    100024: pCylinder34
+    100026: pCylinder36
+    100028: //RootNode
+    100030: polySurface27_pCylinder10
+    100032: polySurface31_pCylinder8
+    100034: polySurface83_polySurface58
+    100036: pPlane2
+    100038: pPlane21
+    100040: pPlane22
+    100042: pPlane26
+    100044: pPlane29
+    100046: pPlane34
+    100048: pPlane35
+    100050: pPlane36
+    100052: pPlane37
+    100054: pPlane49
+    400000: Broken_Crates:pCube2
+    400002: Laser_Fence1:modelPanel3ViewSelectedSet_Laser_Fence1:pCube59_polySurface1
+    400004: Laser_Fence1:modelPanel3ViewSelectedSet_Laser_Fence1:pCube59_polySurface80
+    400006: pCube10
+    400008: pCube11
+    400010: pCube13
+    400012: pCube14
+    400014: pCube15
+    400016: pCylinder14
+    400018: pCylinder16
+    400020: pCylinder17
+    400022: pCylinder33
+    400024: pCylinder34
+    400026: pCylinder36
+    400028: //RootNode
+    400030: polySurface27_pCylinder10
+    400032: polySurface31_pCylinder8
+    400034: polySurface83_polySurface58
+    400036: pPlane2
+    400038: pPlane21
+    400040: pPlane22
+    400042: pPlane26
+    400044: pPlane29
+    400046: pPlane34
+    400048: pPlane35
+    400050: pPlane36
+    400052: pPlane37
+    400054: pPlane49
+    2300000: Broken_Crates:pCube2
+    2300002: Laser_Fence1:modelPanel3ViewSelectedSet_Laser_Fence1:pCube59_polySurface1
+    2300004: Laser_Fence1:modelPanel3ViewSelectedSet_Laser_Fence1:pCube59_polySurface80
+    2300006: pCube10
+    2300008: pCube11
+    2300010: pCube13
+    2300012: pCube14
+    2300014: pCube15
+    2300016: pCylinder14
+    2300018: pCylinder16
+    2300020: pCylinder17
+    2300022: pCylinder33
+    2300024: pCylinder34
+    2300026: pCylinder36
+    2300028: polySurface27_pCylinder10
+    2300030: polySurface31_pCylinder8
+    2300032: polySurface83_polySurface58
+    2300034: pPlane2
+    2300036: pPlane21
+    2300038: pPlane22
+    2300040: pPlane26
+    2300042: pPlane29
+    2300044: pPlane34
+    2300046: pPlane35
+    2300048: pPlane36
+    2300050: pPlane37
+    2300052: pPlane49
+    3300000: Broken_Crates:pCube2
+    3300002: Laser_Fence1:modelPanel3ViewSelectedSet_Laser_Fence1:pCube59_polySurface1
+    3300004: Laser_Fence1:modelPanel3ViewSelectedSet_Laser_Fence1:pCube59_polySurface80
+    3300006: pCube10
+    3300008: pCube11
+    3300010: pCube13
+    3300012: pCube14
+    3300014: pCube15
+    3300016: pCylinder14
+    3300018: pCylinder16
+    3300020: pCylinder17
+    3300022: pCylinder33
+    3300024: pCylinder34
+    3300026: pCylinder36
+    3300028: polySurface27_pCylinder10
+    3300030: polySurface31_pCylinder8
+    3300032: polySurface83_polySurface58
+    3300034: pPlane2
+    3300036: pPlane21
+    3300038: pPlane22
+    3300040: pPlane26
+    3300042: pPlane29
+    3300044: pPlane34
+    3300046: pPlane35
+    3300048: pPlane36
+    3300050: pPlane37
+    3300052: pPlane49
+    4300000: Broken_Crates:pCube2
+    4300002: Laser_Fence1:modelPanel3ViewSelectedSet_Laser_Fence1:pCube59_polySurface1
+    4300004: Laser_Fence1:modelPanel3ViewSelectedSet_Laser_Fence1:pCube59_polySurface80
+    4300006: pCube10
+    4300008: pCube11
+    4300010: pCube13
+    4300012: pCube14
+    4300014: pCube15
+    4300016: pCylinder14
+    4300018: pCylinder16
+    4300020: pCylinder17
+    4300022: pCylinder33
+    4300024: pCylinder34
+    4300026: pCylinder36
+    4300028: polySurface27_pCylinder10
+    4300030: polySurface31_pCylinder8
+    4300032: polySurface83_polySurface58
+    4300034: pPlane2
+    4300036: pPlane21
+    4300038: pPlane22
+    4300040: pPlane26
+    4300042: pPlane29
+    4300044: pPlane34
+    4300046: pPlane35
+    4300048: pPlane36
+    4300050: pPlane37
+    4300052: pPlane49
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
