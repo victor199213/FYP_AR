@@ -10,10 +10,6 @@ public class Core : MonoBehaviour
     public Material[] materials;
     private int textureIndex;
     public int damageToCore;
-    [SerializeField]
-    GameObject MenuMaker;
-    Pausable PausableObjects;
-    SpawnManager SpawnManager;
     private int coreStage2;
     private int coreStage3;
 
@@ -23,8 +19,6 @@ public class Core : MonoBehaviour
         rend = GetComponent<Renderer>();
         rend.enabled = true;
         textureIndex = 0;
-        PausableObjects = GameObject.Find("PausableObjects").GetComponent<Pausable>();
-        SpawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         coreStage2 = (hp / 100) * 70;
         coreStage3 = (hp / 100) * 30;
     }
@@ -45,12 +39,6 @@ public class Core : MonoBehaviour
         {
             hp -= damageToCore;
         }
-        if (col.collider.gameObject.tag == "playerWaypoint" )
-        {
-            Debug.Log("pause");
-            SpawnManager.CancelInvoke();
-            PausableObjects.pausing = true;
-            Instantiate(MenuMaker);
-        }
+
     }
 }
