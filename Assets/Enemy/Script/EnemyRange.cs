@@ -12,7 +12,7 @@ public class EnemyRange : MonoBehaviour
         DEAD
     };
 
-    UnityEngine.AI.NavMeshAgent agentObjective;
+    public UnityEngine.AI.NavMeshAgent agentObjective;
     public GameObject coreObjective;
     //public int hp;
     public float hp;
