@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour {
-    [SerializeField]
     GameObject MenuMaker;
     Pausable PausableObjects;
     SpawnManager SpawnManager;
@@ -12,31 +11,35 @@ public class Menu : MonoBehaviour {
     void Start () {
         PausableObjects = GameObject.Find("PausableObjects").GetComponent<Pausable>();
         SpawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        MenuMaker = GameObject.Find("Pause");
     }
-	
-	// Update is called once per frame
-	void Update () {
+    
+    // Update is called once per frame
+    void Update () {
 		
 	}
+    
 
-
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
-     
-        if (col.collider.gameObject.tag == "coreObjective")
+
+        if (col.gameObject.gameObject.tag == "coreObjective")
         {
             Debug.Log("pause");
             SpawnManager.CancelInvoke();
+            MenuMaker.transform.localScale = new Vector3(1, 1, 1);
             PausableObjects.pausing = true;
-            Instantiate(MenuMaker);
+            //Instantiate(MenuMaker);
         }
-        if (col.collider.gameObject.tag == "Exit")
+        if (col.gameObject.gameObject.tag == "Resume")
         {
-            Application.Quit();
+            MenuMaker.transform.localScale = new Vector3(0, 0, 0);
+            PausableObjects.pausing = false;
+
         }
-        if (col.collider.gameObject.tag == "TitleButton")
+        if (col.gameObject.gameObject.tag == "TitleButton")
         {
-            SceneManager.LoadScene("TitleScene");
+            SceneManager.LoadScene("TitleScene/Title");
         }
 
     }
