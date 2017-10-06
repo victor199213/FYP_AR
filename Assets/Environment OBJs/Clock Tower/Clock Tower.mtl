@@ -178,19 +178,23 @@ illum 4
 Kd 0.00 0.00 0.00
 Ka 1.00 1.00 1.00
 Tf 1.00 1.00 1.00
-map_Kd Palm Springs Title.png
 Ni 1.00
 newmtl lambert8SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.59 0.59 0.59
 Tf 1.00 1.00 1.00
-map_Kd Palm Springs Logo.png
 Ni 1.00
 newmtl lambert10SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.92 0.92 0.92
 Tf 1.00 1.00 1.00
-map_Kd Warning signs.png
+Ni 1.00
+newmtl lambert11SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Debri.tga
 Ni 1.00
