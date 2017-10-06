@@ -32,6 +32,7 @@ public class EnemyRange : MonoBehaviour
 
     private bool poisoned;
     private float poisonTimer;
+    public int deathTimer; // For death animation
 
     void Start()
     {
@@ -210,7 +211,11 @@ public class EnemyRange : MonoBehaviour
 
     void Dead()
     {
-        Destroy(this.gameObject);
+        deathTimer -= 1;
+        if(deathTimer <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     GameObject FindClosestPlayer(GameObject closestPlayer)
