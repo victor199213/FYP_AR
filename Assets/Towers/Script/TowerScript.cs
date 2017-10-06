@@ -90,6 +90,7 @@ public class TowerScript : MonoBehaviour
             }
         }
         turretState = FSM.IDLE;
+        this.GetComponent<Shooting>().fireReady = false;
     }
 
     void snap()
