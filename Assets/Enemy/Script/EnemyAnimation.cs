@@ -20,7 +20,14 @@ public class EnemyAnimation : MonoBehaviour {
         }
         else
         {
-            anim.SetInteger("state", transform.parent.transform.parent.GetComponent<EnemyRange>().getFSM());
+            if (transform.parent.transform.parent.GetComponent<Enemy>() != null)
+            {
+                anim.SetInteger("state", transform.parent.transform.parent.GetComponent<Enemy>().getFSM());
+            }
+            else
+            {
+                anim.SetInteger("state", transform.parent.transform.parent.GetComponent<EnemyRange>().getFSM());
+            }
         }
 	}
 

@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
         DEAD
     };
 
-    UnityEngine.AI.NavMeshAgent agentObjective;
+    public UnityEngine.AI.NavMeshAgent agentObjective;
     public GameObject coreObjective;
     //public int hp;
     public float hp;
@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
 
     private bool poisoned;
     private float poisonTimer;
+    public int deathTimer; // For death animation
 
     void Start()
     {
@@ -233,7 +234,11 @@ public class Enemy : MonoBehaviour
 
     void Dead()
     {
-        Destroy(this.gameObject);
+        deathTimer -= 1;
+        if (deathTimer <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     GameObject FindClosestPlayer(GameObject closestPlayer)
@@ -256,5 +261,28 @@ public class Enemy : MonoBehaviour
     public void poisonHit()
     {
         poisoned = true;
+    }
+
+    public int getFSM()
+    {
+        switch (enemyState)
+        {
+            case FSM.OBJECTIVE:
+                return 0;
+
+            case FSM.AGGRO:
+                return 1;
+
+            case FSM.CHASE:
+                return 2;
+
+            case FSM.ATTACK:
+                return 3;
+
+            case FSM.DEAD:
+                return 4;
+
+        }
+        return -1;
     }
 }

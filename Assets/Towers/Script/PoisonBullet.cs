@@ -48,7 +48,7 @@ public class PoisonBullet : BaseBullet {
             {
                 col.gameObject.GetComponent<EnemyRange>().poisonHit();
             }
-            col.gameObject.GetComponent<Renderer>().material.color = new Color(0.0f, 1.0f, 0.0f, 0.5f);
+            col.gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material.color = new Color(0.0f, 1.0f, 0.0f, 0.5f);
             Destroy(this.gameObject);
         }
         if (col.collider.gameObject.tag == "Wall")
