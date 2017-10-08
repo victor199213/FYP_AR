@@ -45,42 +45,42 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        dis = Vector3.Distance(this.transform.position, playerAble.transform.position);
-        switch (enemyState)
-        {
-            case FSM.OBJECTIVE:
-                Objective();
-                break;
-            case FSM.AGGRO:
-                Aggro();
-                break;
-            case FSM.CHASE:
-                Chase();
-                break;
-            case FSM.ATTACK:
-                Attack();
-                break;
-            case FSM.DEAD:
-                Dead();
-                break;
-            
-        };
 
-        if(poisoned == true)
-        {
-            poisonTimer += Time.deltaTime;
-            if(poisonTimer >= 1.0f)
+            dis = Vector3.Distance(this.transform.position, playerAble.transform.position);
+            switch (enemyState)
             {
-                hp -= 1;
-                poisonTimer -= 1.0f;
+                case FSM.OBJECTIVE:
+                    Objective();
+                    break;
+                case FSM.AGGRO:
+                    Aggro();
+                    break;
+                case FSM.CHASE:
+                    Chase();
+                    break;
+                case FSM.ATTACK:
+                    Attack();
+                    break;
+                case FSM.DEAD:
+                    Dead();
+                    break;
+
+            };
+
+            if (poisoned == true)
+            {
+                poisonTimer += Time.deltaTime;
+                if (poisonTimer >= 1.0f)
+                {
+                    hp -= 1;
+                    poisonTimer -= 1.0f;
+                }
             }
-        }
 
-        if(hp <= 0)
-        {
-            enemyState = FSM.DEAD;
-        }
-
+            if (hp <= 0)
+            {
+                enemyState = FSM.DEAD;
+            }
     }
 
     void OnCollisionEnter(Collision col)
