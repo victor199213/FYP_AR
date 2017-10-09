@@ -8,6 +8,7 @@ public class TitlePlayer : MonoBehaviour
     [SerializeField]
     int TapTIme;
     int CntTime =0;
+    bool IsStart;
     // Use this for initialization
     void Start()
     {
@@ -31,7 +32,15 @@ public class TitlePlayer : MonoBehaviour
             CntTime++;
             if (CntTime >= TapTIme)
             {
-                SceneManager.LoadScene("GamePlay");
+                if (!IsStart)
+                {
+                    IsStart = true;
+                    GameObject.Find("Load").GetComponent<Load>().LoadNextScene();
+                }
+                //Instantiate(Cameara);
+              
+                //Destroy(this.gameObject);
+           
             }
         }
         else if (collider.gameObject.tag == "Exit")
