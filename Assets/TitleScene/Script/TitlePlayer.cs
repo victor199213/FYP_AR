@@ -35,7 +35,7 @@ public class TitlePlayer : MonoBehaviour
                 if (!IsStart)
                 {
                     IsStart = true;
-                    GameObject.Find("Load").GetComponent<Load>().LoadNextScene();
+                    GameObject.Find("Load").GetComponent<Load>().LoadNextScene("GamePlay");
                 }
                 //Instantiate(Cameara);
               

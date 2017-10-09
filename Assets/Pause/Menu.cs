@@ -43,7 +43,8 @@ public class Menu : MonoBehaviour {
         }
         if (col.gameObject.gameObject.tag == "TitleButton")
         {
-            SceneManager.LoadScene("TitleScene/Title");
+            GameObject.Find("Load").GetComponent<Load>().LoadNextScene("TitleScene/Title");
+         
         }
 
     }

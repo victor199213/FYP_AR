@@ -10,16 +10,18 @@ public class Load : MonoBehaviour
     private AsyncOperation async;
     public GameObject LoadingUi;
     public Slider Slider;
+    private string SceneName;
 
-    public void LoadNextScene()
+    public void LoadNextScene(string scene)
     {
+        SceneName = scene;
         LoadingUi.SetActive(true);
         StartCoroutine(LoadScene());
     }
 
     IEnumerator LoadScene()
     {
-        async = SceneManager.LoadSceneAsync("GamePlay");
+        async = SceneManager.LoadSceneAsync(SceneName);
 
         while (!async.isDone)
         {
