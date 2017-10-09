@@ -1,0 +1,161 @@
+Initialize engine version: 5.6.2f1 (a2913c821e27)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA Quadro K2200 (ID=0x13ba)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   21.21.13.7662
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\150452J\Documents\FYP_AR\lol_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\150452J\Documents\FYP_AR\lol_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\150452J\Documents\FYP_AR\lol_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\150452J\Documents\FYP_AR\lol_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\150452J\Documents\FYP_AR\lol_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\150452J\Documents\FYP_AR\lol_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\150452J\Documents\FYP_AR\lol_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\150452J\Documents\FYP_AR\lol_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\150452J\Documents\FYP_AR\lol_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\150452J\Documents\FYP_AR\lol_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\150452J\Documents\FYP_AR\lol_Data\Managed\Vuforia.UnityExtensions.dll (this message is harmless)
+Loading C:\Users\150452J\Documents\FYP_AR\lol_Data\Managed\Vuforia.UnityExtensions.dll into Unity Child Domain
+- Completed reload, in  0.017 seconds
+Platform assembly: C:\Users\150452J\Documents\FYP_AR\lol_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\150452J\Documents\FYP_AR\lol_Data\Managed\System.dll (this message is harmless)
+OnLevelWasLoaded was found on VuforiaAbstractBehaviour
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 376)
+
+OnLevelWasLoaded was found on VuforiaBehaviour
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 376)
+
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.985878 ms
+Setting BehaviourComponentFactory
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Vuforia initialization successful
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Trackable Terrain lost
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Could not initialize the tracker.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+SetHint
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+SetHint
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+SetHint
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dataset Pause could not be loaded and cannot be activated.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dataset TerrainMarker2 could not be loaded and cannot be activated.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dataset UIMarker could not be loaded and cannot be activated.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dataset TerrainMarker could not be loaded and cannot be activated.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dataset PoisonMarker could not be loaded and cannot be activated.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dataset NormalMarker could not be loaded and cannot be activated.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dataset ExplosiveMarker could not be loaded and cannot be activated.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dataset ARTestMarker could not be loaded and cannot be activated.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dataset PlayerMarker could not be loaded and cannot be activated.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dataset Test could not be loaded and cannot be activated.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dataset Test_OT could not be loaded and cannot be activated.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dataset stone could not be loaded and cannot be activated.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dataset Terrain could not be loaded and cannot be activated.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dataset TempMarker could not be loaded and cannot be activated.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+StartVuforia
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Creating a Mono Camera Configuration (Check for reflection)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Requested Focus mode FOCUS_MODE_CONTINUOUSAUTO successfully.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Trackable UIMarker lost
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 6 worker threads for Enlighten.
+  Thread -> id: 1a04 -> priority: 1 
+  Thread -> id: 1244 -> priority: 1 
+  Thread -> id: 1db8 -> priority: 1 
+  Thread -> id: 1664 -> priority: 1 
+  Thread -> id: 1d7c -> priority: 1 
+  Thread -> id: 94c -> priority: 1 
+Trackable UIMarker lost
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Trackable Terrain lost
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+StopVuforia
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
