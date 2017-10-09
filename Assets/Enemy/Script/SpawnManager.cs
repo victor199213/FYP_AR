@@ -15,6 +15,10 @@ public class SpawnManager : MonoBehaviour
     private bool waveSwitch;
     private float TmpSpawnTimer;
 
+    public GameObject winPopup;
+    public GameObject core;
+    public bool gameWin;
+
     void Start()
     {
         InvokeRepeating("Spawn", spawnTime, spawnTime);
@@ -25,6 +29,7 @@ public class SpawnManager : MonoBehaviour
         waveCounter = 1;
         waveSwitch = true;
         TmpSpawnTimer = 0;
+        gameWin = false;
     }
 
     private void Update()
@@ -42,9 +47,9 @@ public class SpawnManager : MonoBehaviour
                 int spawnPointIndex = Random.Range(0, spawnPoints.Length);
                 int spawnPointIndex2 = Random.Range(0, spawnPoints.Length);
                 var parent = Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-                //var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
+                var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
                 parent.transform.parent = gameObject.transform;
-                //parent2.transform.parent = gameObject.transform;
+                parent2.transform.parent = gameObject.transform;
                 TmpSpawnTimer = 0;
             }
 
@@ -73,6 +78,14 @@ public class SpawnManager : MonoBehaviour
         }
         if(waveCounter > totalWave)
         {
+            if(waveSwitch == true)
+            {
+                if (core.GetComponent<Core>().gameLose == false)
+                {
+                    Instantiate(winPopup, new Vector3(0, 5.0f, 0), core.transform.rotation, core.transform);
+                    gameWin = true;
+                }
+            }
             waveSwitch = false;
         }
         if (waveCounter == totalWave)

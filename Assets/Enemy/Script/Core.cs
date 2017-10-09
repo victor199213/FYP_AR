@@ -13,6 +13,10 @@ public class Core : MonoBehaviour
     private int coreStage2;
     private int coreStage3;
 
+    public GameObject losePopup;
+    public GameObject spawnManager;
+    public bool gameLose;
+
     // Use this for initialization
     void Start ()
     {
@@ -21,6 +25,7 @@ public class Core : MonoBehaviour
         textureIndex = 0;
         coreStage2 = (hp / 100) * 70;
         coreStage3 = (hp / 100) * 30;
+        gameLose = false;
     }
 	
 	// Update is called once per frame
@@ -31,6 +36,14 @@ public class Core : MonoBehaviour
             textureIndex = 1;
         }
         rend.sharedMaterial = materials[textureIndex];
+        if(hp <= 0)
+        {
+            if (spawnManager.GetComponent<SpawnManager>().gameWin == false && gameLose == false)
+            {
+                gameLose = true;
+                Instantiate(losePopup, new Vector3(0, 5.0f, 0), this.transform.rotation, this.transform);
+            }
+        }
     }
 
     void OnCollisionEnter(Collision col)
