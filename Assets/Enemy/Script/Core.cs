@@ -15,6 +15,7 @@ public class Core : MonoBehaviour
 
     public GameObject losePopup;
     public GameObject spawnManager;
+    [HideInInspector]
     public bool gameLose;
 
     // Use this for initialization

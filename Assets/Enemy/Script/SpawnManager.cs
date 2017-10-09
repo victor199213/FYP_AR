@@ -17,6 +17,7 @@ public class SpawnManager : MonoBehaviour
 
     public GameObject winPopup;
     public GameObject core;
+    [HideInInspector]
     public bool gameWin;
 
     void Start()
