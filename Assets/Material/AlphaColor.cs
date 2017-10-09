@@ -15,9 +15,10 @@ public class AlphaColor : MonoBehaviour
         rend.material.shader = Shader.Find("Standard");
         GetComponent<Renderer>().material.SetColor("_Color", color);
 
+        rend.material.SetFloat("_Mode", 3);
         rend.material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
         rend.material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-        rend.material.SetInt("_ZWrite", 0);
+        //rend.material.SetInt("_ZWrite", 0);
         rend.material.DisableKeyword("_ALPHATEST_ON");
         rend.material.DisableKeyword("_ALPHABLEND_ON");
         rend.material.EnableKeyword("_ALPHAPREMULTIPLY_ON");
