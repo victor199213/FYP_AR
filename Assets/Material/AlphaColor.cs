@@ -23,6 +23,9 @@ public class AlphaColor : MonoBehaviour
         rend.material.DisableKeyword("_ALPHABLEND_ON");
         rend.material.EnableKeyword("_ALPHAPREMULTIPLY_ON");
         rend.material.renderQueue = 3000;
+
+        rend.material.EnableKeyword("_SPECULARHIGHLIGHTS_OFF");
+        rend.material.SetFloat("_SpecularHighlights", 0f);
     }
 
     private void Update()
