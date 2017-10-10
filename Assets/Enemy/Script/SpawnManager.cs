@@ -15,6 +15,11 @@ public class SpawnManager : MonoBehaviour
     private bool waveSwitch;
     private float TmpSpawnTimer;
 
+    public GameObject winPopup;
+    public GameObject core;
+    [HideInInspector]
+    public bool gameWin;
+
     void Start()
     {
         InvokeRepeating("Spawn", spawnTime, spawnTime);
@@ -25,6 +30,7 @@ public class SpawnManager : MonoBehaviour
         waveCounter = 1;
         waveSwitch = true;
         TmpSpawnTimer = 0;
+        gameWin = false;
     }
 
     private void Update()
@@ -73,6 +79,14 @@ public class SpawnManager : MonoBehaviour
         }
         if(waveCounter > totalWave)
         {
+            if(waveSwitch == true)
+            {
+                if (core.GetComponent<Core>().gameLose == false)
+                {
+                    Instantiate(winPopup, new Vector3(0, 5.0f, 0), core.transform.rotation, core.transform);
+                    gameWin = true;
+                }
+            }
             waveSwitch = false;
         }
         if (waveCounter == totalWave)
