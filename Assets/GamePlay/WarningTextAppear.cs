@@ -67,11 +67,11 @@ public class WarningTextAppear : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown("space") || Input.touchCount == 3)
-        {
-            Debug.Log("WARNING TRIGGERED");
-            triggerWarning();
-        }
+        //if (Input.GetKeyDown("space") || Input.touchCount == 3)
+        //{
+        //    Debug.Log("WARNING TRIGGERED");
+        //    triggerWarning();
+        //}
     }
 
     private void triggerWarning()

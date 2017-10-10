@@ -15,6 +15,9 @@ public class TowerScript : MonoBehaviour
     public GameObject goal;
     public GameObject tracker;
 
+    public GameObject towerTop;
+    public Mesh testing;
+
     enum FSM
     {
         IDLE,
@@ -58,6 +61,11 @@ public class TowerScript : MonoBehaviour
         if (hp > maxHP)
         {
             hp = maxHP;
+        }
+
+        if (Input.GetKeyDown("space"))
+        {
+            towerTop.GetComponent<MeshFilter>().mesh = testing;
         }
     }
     void OnCollisionEnter(Collision col)
