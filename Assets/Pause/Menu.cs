@@ -39,7 +39,7 @@ public class Menu : MonoBehaviour {
             TitleButton.enabled = true;
             ResumeButton.enabled = true;
             PauseUI.enabled = true;
-            PausableObjects.pausing = true;
+            //PausableObjects.pausing = true;
 
             Time.timeScale = 0.1f;
             //Instantiate(MenuMaker);
@@ -50,7 +50,7 @@ public class Menu : MonoBehaviour {
             ResumeButton.enabled = false;
             PauseUI.enabled = false;
 
-            PausableObjects.pausing = false;
+            //PausableObjects.pausing = false;
             Time.timeScale = 1.0f;
         }
         if (col.gameObject.gameObject.tag == "TitleButton")
