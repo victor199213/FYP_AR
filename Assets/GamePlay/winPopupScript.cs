@@ -6,6 +6,7 @@ public class winPopupScript : MonoBehaviour
 {
 
     private int timer;
+    public int returnMenuTimer;
 
     // Use this for initialization
     void Start()
@@ -21,6 +22,14 @@ public class winPopupScript : MonoBehaviour
         if (timer > 0)
         {
             timer--;
+        }
+        else if (returnMenuTimer > 0)
+        {
+            returnMenuTimer--;
+        }
+        else if (returnMenuTimer <= 0)
+        {
+            GameObject.Find("Load").GetComponent<Load>().LoadNextScene("TitleScene/Title");
         }
     }
 }
