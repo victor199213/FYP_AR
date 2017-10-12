@@ -7,12 +7,14 @@ public class TitlePlayer : MonoBehaviour
 {
     [SerializeField]
     int TapTIme;
-    int CntTime =0;
+    [SerializeField]
+    float CntTime = 0.0f;
     bool IsStart;
     // Use this for initialization
     void Start()
     {
-
+        CntTime = 0;
+        Time.timeScale = 1.0f;
     }
 
     // Update is called once per frame
@@ -29,23 +31,23 @@ public class TitlePlayer : MonoBehaviour
         if (collider.gameObject.tag == "GameStart")
         {
 
-            CntTime++;
+            CntTime += 1.0f * Time.deltaTime;
             if (CntTime >= TapTIme)
             {
-                if (!IsStart)
-                {
-                    IsStart = true;
-                    GameObject.Find("Load").GetComponent<Load>().LoadNextScene("GamePlay");
-                }
+                //if (!IsStart)
+                //{
+                //IsStart = true;
+                GameObject.Find("Load").GetComponent<Load>().LoadNextScene("GamePlay");
+                //}
                 //Instantiate(Cameara);
-              
+
                 //Destroy(this.gameObject);
-           
+                //SceneManager.LoadScene("GamePlay");
             }
         }
         else if (collider.gameObject.tag == "Exit")
         {
-            CntTime++;
+            CntTime += 1.0f * Time.deltaTime; ;
             if (CntTime >= TapTIme)
             {
                 Application.Quit();
@@ -53,7 +55,7 @@ public class TitlePlayer : MonoBehaviour
         }
         else if (collider.gameObject.tag != "Player")
         {
-            CntTime = 0;
+            CntTime = 0.0f;
         }
       
     }
