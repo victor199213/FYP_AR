@@ -10,7 +10,7 @@ public class AlphaColor : MonoBehaviour
     void Start ()
     {
         color = GetComponent<Renderer>().material.color;
-        color.a -= 0.25f;
+        color.a -= 0.50f;
         rend = GetComponent<Renderer>();
         rend.material.shader = Shader.Find("Standard");
         GetComponent<Renderer>().material.SetColor("_Color", color);
@@ -35,6 +35,10 @@ public class AlphaColor : MonoBehaviour
             this.rend.enabled = false;
         }
         if (this.gameObject.tag == "coreObjective")
+        {
+            this.rend.enabled = false;
+        }
+        if (this.gameObject.tag == "ground")
         {
             this.rend.enabled = false;
         }
