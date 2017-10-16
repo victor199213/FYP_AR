@@ -15,6 +15,8 @@ public class SpawnManager : MonoBehaviour
     private bool waveSwitch;
     private float TmpSpawnTimer;
 
+    public TextMesh timeLeftDisplay;
+
     public GameObject winPopup;
     public GameObject core;
     [HideInInspector]
@@ -93,5 +95,6 @@ public class SpawnManager : MonoBehaviour
         {
             waveDownTime = 0;
         }
+        timeLeftDisplay.text = waveDuration.ToString("F0");
     }
 }
