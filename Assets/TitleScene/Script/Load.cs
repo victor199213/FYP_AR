@@ -22,7 +22,7 @@ public class Load : MonoBehaviour
     IEnumerator LoadScene()
     {
         async = SceneManager.LoadSceneAsync(SceneName);
-        SceneManager.LoadScene(SceneName);
+        //SceneManager.LoadScene(SceneName);
 
         while (!async.isDone)
         {

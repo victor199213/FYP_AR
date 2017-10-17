@@ -15,6 +15,7 @@ public class TitlePlayer : MonoBehaviour
     {
         CntTime = 0;
         Time.timeScale = 1.0f;
+        IsStart = false;
     }
 
     // Update is called once per frame
@@ -26,37 +27,39 @@ public class TitlePlayer : MonoBehaviour
 
     void OnTriggerStay(Collider collider)
     {
-        Debug.Log("....当たった" + collider.gameObject.tag);
-
-        if (collider.gameObject.tag == "GameStart")
+        if (!IsStart)
         {
+            Debug.Log("....当たった" + collider.gameObject.tag);
 
-            CntTime += 1.0f * Time.deltaTime;
-            if (CntTime >= TapTIme)
+            if (collider.gameObject.tag == "GameStart")
             {
-                //if (!IsStart)
-                //{
-                //IsStart = true;
-                GameObject.Find("Load").GetComponent<Load>().LoadNextScene("GamePlay");
-                //}
-                //Instantiate(Cameara);
 
-                //Destroy(this.gameObject);
-                //SceneManager.LoadScene("GamePlay");
+                CntTime += 1.0f * Time.deltaTime;
+                if (CntTime >= TapTIme)
+                {
+
+                    IsStart = true;
+                    GameObject.Find("Load").GetComponent<Load>().LoadNextScene("GamePlay");
+
+                    //Instantiate(Cameara);
+
+                    //Destroy(this.gameObject);
+                    //SceneManager.LoadScene("GamePlay");
+                }
             }
-        }
-        else if (collider.gameObject.tag == "Exit")
-        {
-            CntTime += 1.0f * Time.deltaTime; ;
-            if (CntTime >= TapTIme)
+            else if (collider.gameObject.tag == "Exit")
             {
-                Application.Quit();
+                CntTime += 1.0f * Time.deltaTime; ;
+                if (CntTime >= TapTIme)
+                {
+                    Application.Quit();
+                }
             }
+            else if (collider.gameObject.tag != "Player")
+            {
+                CntTime = 0.0f;
+            }
+
         }
-        else if (collider.gameObject.tag != "Player")
-        {
-            CntTime = 0.0f;
-        }
-      
     }
 }
