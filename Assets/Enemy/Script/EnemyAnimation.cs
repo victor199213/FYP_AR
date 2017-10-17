@@ -15,7 +15,21 @@ public class EnemyAnimation : MonoBehaviour {
 	void Update () {
         if (transform.parent.transform.parent.GetComponent<UnityEngine.AI.NavMeshAgent>().velocity != Vector3.zero)
         {
-            anim.SetInteger("state", 5);
+            if (transform.parent.transform.parent.GetComponent<Enemy>() != null)
+            {
+                anim.SetInteger("state", 5);
+            }
+            else
+            { 
+                if (transform.parent.transform.parent.GetComponent<UnityEngine.AI.NavMeshAgent>().velocity.magnitude > 5)
+                {
+                    anim.SetInteger("state", 5);
+                }
+                else
+                {
+                    anim.SetInteger("state", 6);
+                }
+            }
             //Debug.Log(transform.parent.transform.parent.GetComponent<UnityEngine.AI.NavMeshAgent>().remainingDistance);
         }
         else

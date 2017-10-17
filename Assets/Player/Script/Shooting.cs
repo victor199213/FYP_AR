@@ -14,6 +14,7 @@ public class Shooting : MonoBehaviour
     List<GameObject> lastBullet = new List<GameObject>();
     GameObject nearTarget = null;
     GameObject global;
+    public Animator anim;
 
     [HideInInspector]
     public bool fireReady = false;
@@ -41,10 +42,18 @@ public class Shooting : MonoBehaviour
                 {
                     SpawnBullet();
                     fireTimer = 0;
+                    if(anim)
+                    {
+                        anim.SetInteger("state", 1);
+                    }
                 }
             }
         }
-	}
+        else if (anim && fireTimer < fireRate)
+        {
+            anim.SetInteger("state", 0);
+        }
+    }
 
     void SpawnBullet()
     {

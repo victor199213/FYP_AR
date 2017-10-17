@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public int healRange;
     public float healingRate;
 
+    public Animator anim;
+
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -44,6 +46,7 @@ public class Player : MonoBehaviour
         if (Vector3.Distance(this.gameObject.transform.position, goal.transform.position) < 10)
         {
             state = FSM.ATTACK;
+            anim.SetInteger("state", 0);
         }
     }
 
@@ -55,6 +58,7 @@ public class Player : MonoBehaviour
         {
             state = FSM.MOVE;
             shoot.fireReady = false;
+            anim.SetInteger("state", 2);
         }
     }
 }

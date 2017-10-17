@@ -12,8 +12,14 @@ public class ExplosiveTowerScript : MonoBehaviour
     public int damage;
     FSM turretState;
     public int towerType;
-    public Transform goal;
+    public GameObject goal;
     public GameObject tracker;
+
+    public GameObject towerTop;
+    public Mesh damaged;
+    public Mesh destroyed;
+
+    public Animator anim;
 
     enum FSM
     {
@@ -52,7 +58,18 @@ public class ExplosiveTowerScript : MonoBehaviour
 
         if (hp <= 0)
         {
+            towerTop.GetComponent<SkinnedMeshRenderer>().sharedMesh = destroyed;
+            anim.SetInteger("state", 2);
             turretState = FSM.DEAD;
+        }
+        else if (hp <= maxHP / 2)
+        {
+            towerTop.GetComponent<SkinnedMeshRenderer>().sharedMesh = damaged;
+        }
+
+        if (hp > maxHP)
+        {
+            hp = maxHP;
         }
 
         if (hp > maxHP)
@@ -91,6 +108,7 @@ public class ExplosiveTowerScript : MonoBehaviour
         }
         turretState = FSM.IDLE;
         this.GetComponent<Shooting>().fireReady = false;
+        anim.SetInteger("state", 0);
     }
 
     void snap()

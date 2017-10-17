@@ -16,7 +16,10 @@ public class TowerScript : MonoBehaviour
     public GameObject tracker;
 
     public GameObject towerTop;
-    public Mesh testing;
+    public Mesh damaged;
+    public Mesh destroyed;
+
+    public Animator anim;
 
     enum FSM
     {
@@ -55,17 +58,18 @@ public class TowerScript : MonoBehaviour
 
         if (hp <= 0)
         {
+            towerTop.GetComponent<SkinnedMeshRenderer>().sharedMesh = destroyed;
+            anim.SetInteger("state", 2);
             turretState = FSM.DEAD;
+        }
+        else if (hp <= maxHP / 2)
+        {
+            towerTop.GetComponent<SkinnedMeshRenderer>().sharedMesh = damaged;
         }
 
         if (hp > maxHP)
         {
             hp = maxHP;
-        }
-
-        if (Input.GetKeyDown("space"))
-        {
-            towerTop.GetComponent<MeshFilter>().mesh = testing;
         }
     }
     void OnCollisionEnter(Collision col)
@@ -99,6 +103,7 @@ public class TowerScript : MonoBehaviour
         }
         turretState = FSM.IDLE;
         this.GetComponent<Shooting>().fireReady = false;
+        anim.SetInteger("state", 0);
     }
 
     void snap()
