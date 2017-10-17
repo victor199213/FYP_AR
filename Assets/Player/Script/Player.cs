@@ -48,6 +48,10 @@ public class Player : MonoBehaviour
             state = FSM.ATTACK;
             anim.SetInteger("state", 0);
         }
+        else
+        {
+            anim.SetInteger("state", 2);
+        }
     }
 
     void Attack()
