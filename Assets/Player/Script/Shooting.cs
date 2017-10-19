@@ -47,6 +47,10 @@ public class Shooting : MonoBehaviour
                         anim.SetInteger("state", 1);
                     }
                 }
+                else
+                {
+                    anim.SetInteger("state", 0);
+                }
             }
         }
         else if (anim && fireTimer < fireRate)
