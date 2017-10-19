@@ -20,6 +20,7 @@ public class ExplosiveTowerScript : MonoBehaviour
     public Mesh destroyed;
 
     public Animator anim;
+    public GameObject aimTracking;
 
     enum FSM
     {
@@ -63,6 +64,7 @@ public class ExplosiveTowerScript : MonoBehaviour
             turretState = FSM.DEAD;
             Shooting shoot = this.GetComponent<Shooting>();
             shoot.fireReady = false;
+            aimTracking.GetComponent<TrackingSystem>().enabled = false;
         }
         else if (hp <= maxHP / 2)
         {

@@ -19,6 +19,8 @@ public class TowerScript : MonoBehaviour
     public Mesh damaged;
     public Mesh destroyed;
 
+    public GameObject aimTracking;
+
     public Animator anim;
 
     enum FSM
@@ -63,6 +65,7 @@ public class TowerScript : MonoBehaviour
             turretState = FSM.DEAD;
             Shooting shoot = this.GetComponent<Shooting>();
             shoot.fireReady = false;
+            aimTracking.GetComponent<TrackingSystem>().enabled = false;
         }
         else if (hp <= maxHP / 2)
         {
