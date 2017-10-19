@@ -61,6 +61,8 @@ public class ExplosiveTowerScript : MonoBehaviour
             towerTop.GetComponent<SkinnedMeshRenderer>().sharedMesh = destroyed;
             anim.SetInteger("state", 2);
             turretState = FSM.DEAD;
+            Shooting shoot = this.GetComponent<Shooting>();
+            shoot.fireReady = false;
         }
         else if (hp <= maxHP / 2)
         {
