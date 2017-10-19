@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: aa02eeb9dec3d1541ad6173aa9e6ddd4
-timeCreated: 1508379271
+timeCreated: 1508386899
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -32,6 +32,31 @@ ModelImporter:
     100048: Spine3
     100050: Spine4
     100052: //RootNode
+    100054: Zombie_Tank1:Head
+    100056: Zombie_Tank1:L_Ankle
+    100058: Zombie_Tank1:L_Elbow
+    100060: Zombie_Tank1:L_Feet
+    100062: Zombie_Tank1:L_Hand
+    100064: Zombie_Tank1:L_Hip
+    100066: Zombie_Tank1:L_Knee
+    100068: Zombie_Tank1:L_Shoulder
+    100070: Zombie_Tank1:L_Toe
+    100072: Zombie_Tank1:L_Wrist
+    100074: Zombie_Tank1:Main
+    100076: Zombie_Tank1:Neck
+    100078: Zombie_Tank1:R_Ankle
+    100080: Zombie_Tank1:R_Elbow
+    100082: Zombie_Tank1:R_Feet
+    100084: Zombie_Tank1:R_Hand
+    100086: Zombie_Tank1:R_Hip
+    100088: Zombie_Tank1:R_Knee
+    100090: Zombie_Tank1:R_Shoulder
+    100092: Zombie_Tank1:R_Toe
+    100094: Zombie_Tank1:R_Wrist
+    100096: Zombie_Tank1:Spine1
+    100098: Zombie_Tank1:Spine2
+    100100: Zombie_Tank1:Spine3
+    100102: Zombie_Tank1:Spine4
     400000: Head
     400002: L_Ankle
     400004: L_Elbow
@@ -59,6 +84,31 @@ ModelImporter:
     400048: Spine3
     400050: Spine4
     400052: //RootNode
+    400054: Zombie_Tank1:Head
+    400056: Zombie_Tank1:L_Ankle
+    400058: Zombie_Tank1:L_Elbow
+    400060: Zombie_Tank1:L_Feet
+    400062: Zombie_Tank1:L_Hand
+    400064: Zombie_Tank1:L_Hip
+    400066: Zombie_Tank1:L_Knee
+    400068: Zombie_Tank1:L_Shoulder
+    400070: Zombie_Tank1:L_Toe
+    400072: Zombie_Tank1:L_Wrist
+    400074: Zombie_Tank1:Main
+    400076: Zombie_Tank1:Neck
+    400078: Zombie_Tank1:R_Ankle
+    400080: Zombie_Tank1:R_Elbow
+    400082: Zombie_Tank1:R_Feet
+    400084: Zombie_Tank1:R_Hand
+    400086: Zombie_Tank1:R_Hip
+    400088: Zombie_Tank1:R_Knee
+    400090: Zombie_Tank1:R_Shoulder
+    400092: Zombie_Tank1:R_Toe
+    400094: Zombie_Tank1:R_Wrist
+    400096: Zombie_Tank1:Spine1
+    400098: Zombie_Tank1:Spine2
+    400100: Zombie_Tank1:Spine3
+    400102: Zombie_Tank1:Spine4
     4300000: pCube42
     9500000: //RootNode
     13700000: pCube42

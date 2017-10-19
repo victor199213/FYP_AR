@@ -81,7 +81,87 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 151
+      lastFrame: 180
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Zombie_Tank1:Main
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:L_Hip
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:L_Hip/Zombie_Tank1:L_Knee
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:L_Hip/Zombie_Tank1:L_Knee/Zombie_Tank1:L_Ankle
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:L_Hip/Zombie_Tank1:L_Knee/Zombie_Tank1:L_Ankle/Zombie_Tank1:L_Feet
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:L_Hip/Zombie_Tank1:L_Knee/Zombie_Tank1:L_Ankle/Zombie_Tank1:L_Feet/Zombie_Tank1:L_Toe
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:R_Hip
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:R_Hip/Zombie_Tank1:R_Knee
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:R_Hip/Zombie_Tank1:R_Knee/Zombie_Tank1:R_Ankle
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:R_Hip/Zombie_Tank1:R_Knee/Zombie_Tank1:R_Ankle/Zombie_Tank1:R_Feet
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:R_Hip/Zombie_Tank1:R_Knee/Zombie_Tank1:R_Ankle/Zombie_Tank1:R_Feet/Zombie_Tank1:R_Toe
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:Spine1
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:Spine1/Zombie_Tank1:Spine2
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:Spine1/Zombie_Tank1:Spine2/Zombie_Tank1:Spine3
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:Spine1/Zombie_Tank1:Spine2/Zombie_Tank1:Spine3/Zombie_Tank1:Spine4
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:Spine1/Zombie_Tank1:Spine2/Zombie_Tank1:Spine3/Zombie_Tank1:Spine4/Zombie_Tank1:L_Shoulder
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:Spine1/Zombie_Tank1:Spine2/Zombie_Tank1:Spine3/Zombie_Tank1:Spine4/Zombie_Tank1:L_Shoulder/Zombie_Tank1:L_Elbow
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:Spine1/Zombie_Tank1:Spine2/Zombie_Tank1:Spine3/Zombie_Tank1:Spine4/Zombie_Tank1:L_Shoulder/Zombie_Tank1:L_Elbow/Zombie_Tank1:L_Wrist
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:Spine1/Zombie_Tank1:Spine2/Zombie_Tank1:Spine3/Zombie_Tank1:Spine4/Zombie_Tank1:L_Shoulder/Zombie_Tank1:L_Elbow/Zombie_Tank1:L_Wrist/Zombie_Tank1:L_Hand
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:Spine1/Zombie_Tank1:Spine2/Zombie_Tank1:Spine3/Zombie_Tank1:Spine4/Zombie_Tank1:Neck
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:Spine1/Zombie_Tank1:Spine2/Zombie_Tank1:Spine3/Zombie_Tank1:Spine4/Zombie_Tank1:Neck/Zombie_Tank1:Head
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:Spine1/Zombie_Tank1:Spine2/Zombie_Tank1:Spine3/Zombie_Tank1:Spine4/Zombie_Tank1:R_Shoulder
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:Spine1/Zombie_Tank1:Spine2/Zombie_Tank1:Spine3/Zombie_Tank1:Spine4/Zombie_Tank1:R_Shoulder/Zombie_Tank1:R_Elbow
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:Spine1/Zombie_Tank1:Spine2/Zombie_Tank1:Spine3/Zombie_Tank1:Spine4/Zombie_Tank1:R_Shoulder/Zombie_Tank1:R_Elbow/Zombie_Tank1:R_Wrist
+        weight: 1
+      - path: Zombie_Tank1:Main/Zombie_Tank1:Spine1/Zombie_Tank1:Spine2/Zombie_Tank1:Spine3/Zombie_Tank1:Spine4/Zombie_Tank1:R_Shoulder/Zombie_Tank1:R_Elbow/Zombie_Tank1:R_Wrist/Zombie_Tank1:R_Hand
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
