@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     public float aggroDuration;
     private float tempTime;
     public float trackingSpeed;
+    private float attTimer;
 
     private bool poisoned;
     private float poisonTimer;
@@ -131,23 +132,6 @@ public class Enemy : MonoBehaviour
                 enemyState = FSM.AGGRO;
             }
         }
-
-        if (col.collider.gameObject.tag == "turret")
-        {
-            if (col.collider.gameObject.GetComponentInChildren<TowerScript>())
-            {
-                col.collider.gameObject.GetComponentInChildren<TowerScript>().hp -= damage;
-            }
-            else if (col.collider.gameObject.GetComponentInChildren<ExplosiveTowerScript>())
-            {
-                col.collider.gameObject.GetComponentInChildren<ExplosiveTowerScript>().hp -= damage;
-            }
-            else if (col.collider.gameObject.GetComponentInChildren<PoisonTowerScript>())
-            {
-                col.collider.gameObject.GetComponentInChildren<PoisonTowerScript>().hp -= damage;
-            }
-            Destroy(this.gameObject);
-        }
     }
 
     void OnCollisionStay(Collision col)
@@ -161,6 +145,52 @@ public class Enemy : MonoBehaviour
             {
                 enemyState = FSM.AGGRO;
             }
+        }
+
+
+        if (col.collider.gameObject.tag == "turret" && dis <= attackDistance)
+        {
+
+            if (col.collider.gameObject.GetComponentInChildren<TowerScript>())
+            {
+                attTimer += Time.fixedDeltaTime * 1;
+                if (attTimer >= 1)
+                {
+                    col.collider.gameObject.GetComponentInChildren<TowerScript>().hp -= damage;
+                    attTimer = 0;
+                }
+                if(col.collider.gameObject.GetComponentInChildren<TowerScript>().hp <= 0)
+                {
+                    enemyState = FSM.OBJECTIVE;
+                }
+            }
+            if (col.collider.gameObject.GetComponentInChildren<ExplosiveTowerScript>())
+            {
+                attTimer += Time.fixedDeltaTime * 1;
+                if (attTimer >= 1)
+                {
+                    col.collider.gameObject.GetComponentInChildren<ExplosiveTowerScript>().hp -= damage;
+                    attTimer = 0;
+                }
+                if (col.collider.gameObject.GetComponentInChildren<ExplosiveTowerScript>().hp <= 0)
+                {
+                    enemyState = FSM.OBJECTIVE;
+                }
+            }
+            if (col.collider.gameObject.GetComponentInChildren<PoisonTowerScript>())
+            {
+                attTimer += Time.fixedDeltaTime * 1;
+                if (attTimer >= 1)
+                {
+                    col.collider.gameObject.GetComponentInChildren<PoisonTowerScript>().hp -= damage;
+                    attTimer = 0;
+                }
+                if (col.collider.gameObject.GetComponentInChildren<PoisonTowerScript>().hp <= 0)
+                {
+                    enemyState = FSM.OBJECTIVE;
+                }
+            }
+            //Destroy(this.gameObject);
         }
     }
 
