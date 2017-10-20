@@ -22,6 +22,9 @@ public class ExplosiveTowerScript : MonoBehaviour
     public Animator anim;
     public GameObject aimTracking;
 
+    int standardDamage;
+    int abnormalDamage = 10;
+
     enum FSM
     {
         IDLE,
@@ -34,6 +37,7 @@ public class ExplosiveTowerScript : MonoBehaviour
         turretState = FSM.IDLE;
         maxHP = hp;
         disableParticles();
+        standardDamage = damage;
     }
 
     void Update()
@@ -144,4 +148,18 @@ public class ExplosiveTowerScript : MonoBehaviour
     {
         this.gameObject.GetComponent<ParticleSystem>().Stop();
     }
+
+
+    public void ChangeDamage(bool standard)
+    {
+        if (standard)
+        {
+            damage = standardDamage;
+        }
+        else
+        {
+            damage = abnormalDamage;
+        }
+    }
+
 }

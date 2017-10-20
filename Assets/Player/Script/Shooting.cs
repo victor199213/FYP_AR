@@ -22,11 +22,14 @@ public class Shooting : MonoBehaviour
     float standardFireRate;
     float abnormalFireRate = 0.1f;
     string Mytag;
+    ExplosiveTowerScript explosiveTowerScript;
+
     private void Start()
     {
         global = GameObject.FindWithTag("Global");
         standardFireRate = fireRate;
         Mytag = transform.tag;
+        explosiveTowerScript = this.gameObject.GetComponent<ExplosiveTowerScript>();
     }
 
     // Update is called once per frame
@@ -131,12 +134,14 @@ public class Shooting : MonoBehaviour
         if (standard)
         {
             fireRate = standardFireRate;
-            //this.gameObject.GetComponent<ParticleSystem>().Stop();
-
+            
+            this.gameObject.GetComponent<ParticleSystem>().Stop();
+            explosiveTowerScript.ChangeDamage(true);
         }
         else
         {
             fireRate = abnormalFireRate;
+            explosiveTowerScript.ChangeDamage(false);
             this.gameObject.GetComponent<ParticleSystem>().Play();
         }   
     }
