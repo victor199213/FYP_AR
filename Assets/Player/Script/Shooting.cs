@@ -19,9 +19,14 @@ public class Shooting : MonoBehaviour
     [HideInInspector]
     public bool fireReady = false;
 
+    float standardFireRate;
+    float abnormalFireRate = 0.1f;
+    string Mytag;
     private void Start()
     {
         global = GameObject.FindWithTag("Global");
+        standardFireRate = fireRate;
+        Mytag = transform.tag;
     }
 
     // Update is called once per frame
@@ -56,6 +61,15 @@ public class Shooting : MonoBehaviour
         else if (anim && fireTimer < fireRate)
         {
             //anim.SetInteger("state", 0);
+        }
+
+        if (Mytag == "Normal")
+        {
+            if (GameObject.Find("Poison") != null)
+            {
+                Debug.Log(Vector3.Distance(GameObject.Find("Poison").transform.position, this.transform.position));
+
+            }
         }
     }
 
@@ -93,5 +107,40 @@ public class Shooting : MonoBehaviour
             }
         }
         return closestPlayer;
+    }
+
+
+
+    void OnCollisionStay(Collision col)
+    {
+        if (Mytag != col.collider.gameObject.tag)
+        {
+            if (col.collider.gameObject.gameObject.tag == "Poison")
+                ChangeFireRate(false);
+            else if (col.collider.gameObject.gameObject.tag == "Explosive")
+                ChangeFireRate(false);
+            else if(col.collider.gameObject.gameObject.tag == "Normal")
+                ChangeFireRate(false);
+            else if (col.collider.gameObject.gameObject.tag != "Untagged")
+                ChangeFireRate(true);
+        }
+
+       
+        Debug.Log("tryeeeee");
+    }
+
+    public void ChangeFireRate(bool standard)
+    {
+        if (standard)
+        {
+            fireRate = standardFireRate;
+            //this.gameObject.GetComponent<ParticleSystem>().Stop();
+
+        }
+        else
+        {
+            fireRate = abnormalFireRate;
+            this.gameObject.GetComponent<ParticleSystem>().Play();
+        }   
     }
 }
