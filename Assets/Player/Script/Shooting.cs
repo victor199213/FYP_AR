@@ -124,9 +124,6 @@ public class Shooting : MonoBehaviour
             else if (col.collider.gameObject.gameObject.tag != "Untagged")
                 ChangeFireRate(true);
         }
-
-       
-        Debug.Log("tryeeeee");
     }
 
     public void ChangeFireRate(bool standard)
