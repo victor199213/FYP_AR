@@ -7,7 +7,6 @@ public class Shooting : MonoBehaviour
     public float fireRate;
     public float fieldOfView;
     public GameObject bullet;
-    public GameObject target;
     public List<GameObject> bulletSpawn;
     public int detectionDistance;
     float fireTimer;
@@ -15,6 +14,7 @@ public class Shooting : MonoBehaviour
     GameObject nearTarget = null;
     GameObject global;
     public Animator anim;
+    GameObject closestPlayer;
 
     [HideInInspector]
     public bool fireReady = false;
@@ -34,13 +34,13 @@ public class Shooting : MonoBehaviour
     {
         fireTimer += Time.deltaTime;
 
-        nearTarget = FindClosestPlayer(target);
+        nearTarget = FindClosestPlayer();
 
         float dis = Vector3.Distance(nearTarget.transform.position, this.transform.position);
 
         if (fireTimer >= fireRate && fireReady == true && (nearTarget.transform.position != Vector3.zero))
         {
-            float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position));
+            float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(nearTarget.transform.position - transform.position));
             if(angle < fieldOfView)
             {
                 if (dis < detectionDistance)
@@ -92,7 +92,7 @@ public class Shooting : MonoBehaviour
     }
 
 
-    GameObject FindClosestPlayer(GameObject closestPlayer)
+    GameObject FindClosestPlayer()
     {
         GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
         float distance = Mathf.Infinity;
