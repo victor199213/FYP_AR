@@ -114,35 +114,35 @@ public class Shooting : MonoBehaviour
 
 
 
-    void OnCollisionStay(Collision col)
-    {
-        if (Mytag != col.collider.gameObject.tag)
-        {
-            if (col.collider.gameObject.gameObject.tag == "Poison")
-                ChangeFireRate(false);
-            else if (col.collider.gameObject.gameObject.tag == "Explosive")
-                ChangeFireRate(false);
-            else if(col.collider.gameObject.gameObject.tag == "Normal")
-                ChangeFireRate(false);
-            else if (col.collider.gameObject.gameObject.tag != "Untagged")
-                ChangeFireRate(true);
-        }
-    }
+    //void OnCollisionStay(Collision col)
+    //{
+    //    if (Mytag != col.collider.gameObject.tag)
+    //    {
+    //        if (col.collider.gameObject.gameObject.tag == "Poison")
+    //            ChangeFireRate(false);
+    //        else if (col.collider.gameObject.gameObject.tag == "Explosive")
+    //            ChangeFireRate(false);
+    //        else if(col.collider.gameObject.gameObject.tag == "Normal")
+    //            ChangeFireRate(false);
+    //        else if (col.collider.gameObject.gameObject.tag != "Untagged")
+    //            ChangeFireRate(true);
+    //    }
+    //}
 
-    public void ChangeFireRate(bool standard)
-    {
-        if (standard)
-        {
-            fireRate = standardFireRate;
+    //public void ChangeFireRate(bool standard)
+    //{
+    //    if (standard)
+    //    {
+    //        fireRate = standardFireRate;
             
-            this.gameObject.GetComponent<ParticleSystem>().Stop();
-            explosiveTowerScript.ChangeDamage(true);
-        }
-        else
-        {
-            fireRate = abnormalFireRate;
-            explosiveTowerScript.ChangeDamage(false);
-            this.gameObject.GetComponent<ParticleSystem>().Play();
-        }   
-    }
+    //        this.gameObject.GetComponent<ParticleSystem>().Stop();
+    //        explosiveTowerScript.ChangeDamage(true);
+    //    }
+    //    else
+    //    {
+    //        fireRate = abnormalFireRate;
+    //        explosiveTowerScript.ChangeDamage(false);
+    //        this.gameObject.GetComponent<ParticleSystem>().Play();
+    //    }   
+    //}
 }

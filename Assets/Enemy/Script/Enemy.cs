@@ -148,7 +148,7 @@ public class Enemy : MonoBehaviour
         }
 
 
-        if (col.collider.gameObject.tag == "turret" && dis <= attackDistance)
+        if (dis <= attackDistance)
         {
 
             if (col.collider.gameObject.GetComponentInChildren<TowerScript>())

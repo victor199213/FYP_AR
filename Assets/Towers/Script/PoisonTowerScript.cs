@@ -80,9 +80,9 @@ public class PoisonTowerScript : MonoBehaviour
     {
         if (col.collider.gameObject.tag == "EnemyBullet")
         {
-            //GameObject enemyRange = GameObject.FindWithTag("EnemyRange");
-            //EnemyRange tempEnemyRange = enemyRange.GetComponent<EnemyRange>();
-            //hp -= tempEnemyRange.damage;
+            GameObject enemyRange = GameObject.FindWithTag("EnemyBullet");
+            EnemyBullet tempEnemyRange = enemyRange.GetComponent<EnemyBullet>();
+            hp -= tempEnemyRange.damage;
         }
     }
     void Attack()

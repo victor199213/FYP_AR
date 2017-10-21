@@ -8,6 +8,7 @@ public class EnemyBullet : BaseBullet
     Vector3 direction;
     bool fired;
     float destroyTimer;
+    public float damage;
     public string attackTag;
     public string turretTag;
 
@@ -48,18 +49,6 @@ public class EnemyBullet : BaseBullet
         }
         if (col.collider.gameObject.tag == "turret")
         {
-            if (col.collider.gameObject.GetComponentInChildren<TowerScript>())
-            {
-                col.collider.gameObject.GetComponentInChildren<TowerScript>().hp -= 1;
-            }
-            else if (col.collider.gameObject.GetComponentInChildren<ExplosiveTowerScript>())
-            {
-                col.collider.gameObject.GetComponentInChildren<ExplosiveTowerScript>().hp -= 1;
-            }
-            else if (col.collider.gameObject.GetComponentInChildren<PoisonTowerScript>())
-            {
-                col.collider.gameObject.GetComponentInChildren<PoisonTowerScript>().hp -= 1;
-            }
             Destroy(this.gameObject);
         }
     }
