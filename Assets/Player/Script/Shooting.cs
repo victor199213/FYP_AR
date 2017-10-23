@@ -22,14 +22,29 @@ public class Shooting : MonoBehaviour
     float standardFireRate;
     float abnormalFireRate = 0.1f;
     string Mytag;
+    PoisonTowerScript poisonTowerScript;
     ExplosiveTowerScript explosiveTowerScript;
+    TowerScript towerScript;
 
     private void Start()
     {
         global = GameObject.FindWithTag("Global");
         standardFireRate = fireRate;
         Mytag = transform.tag;
-        explosiveTowerScript = this.gameObject.GetComponent<ExplosiveTowerScript>();
+        switch (Mytag)
+        {
+            case "Poison":
+                poisonTowerScript = this.gameObject.GetComponent<PoisonTowerScript>();
+                break;
+            case "Explosive":
+                explosiveTowerScript = this.gameObject.GetComponent<ExplosiveTowerScript>();
+                break;
+            case "Normal":
+                towerScript = this.gameObject.GetComponent<TowerScript>();
+                break;
+            default:
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -114,35 +129,65 @@ public class Shooting : MonoBehaviour
 
 
 
-    //void OnCollisionStay(Collision col)
-    //{
-    //    if (Mytag != col.collider.gameObject.tag)
-    //    {
-    //        if (col.collider.gameObject.gameObject.tag == "Poison")
-    //            ChangeFireRate(false);
-    //        else if (col.collider.gameObject.gameObject.tag == "Explosive")
-    //            ChangeFireRate(false);
-    //        else if(col.collider.gameObject.gameObject.tag == "Normal")
-    //            ChangeFireRate(false);
-    //        else if (col.collider.gameObject.gameObject.tag != "Untagged")
-    //            ChangeFireRate(true);
-    //    }
-    //}
+    void OnCollisionStay(Collision col)
+    {
+        if (Mytag != col.collider.gameObject.tag)
+        {
+            if (col.collider.gameObject.gameObject.tag == "Poison")
+                ChangeFireRate(false);
+            else if (col.collider.gameObject.gameObject.tag == "Explosive")
+                ChangeFireRate(false);
+            else if (col.collider.gameObject.gameObject.tag == "Normal")
+                ChangeFireRate(false);
+            else if (col.collider.gameObject.gameObject.tag != "Untagged")
+                ChangeFireRate(true);
+        }
+    }
 
-    //public void ChangeFireRate(bool standard)
-    //{
-    //    if (standard)
-    //    {
-    //        fireRate = standardFireRate;
-            
-    //        this.gameObject.GetComponent<ParticleSystem>().Stop();
-    //        explosiveTowerScript.ChangeDamage(true);
-    //    }
-    //    else
-    //    {
-    //        fireRate = abnormalFireRate;
-    //        explosiveTowerScript.ChangeDamage(false);
-    //        this.gameObject.GetComponent<ParticleSystem>().Play();
-    //    }   
-    //}
+    public void ChangeFireRate(bool standard)
+    {
+        
+   
+        if (standard)
+        {
+            fireRate = standardFireRate;
+
+            this.gameObject.GetComponent<ParticleSystem>().Stop();
+            switch (Mytag)
+            {
+                case "Poison":
+                    towerScript.ChangeDamage(true); ;
+                    break;
+                case "Explosive":
+                    explosiveTowerScript.ChangeDamage(true);
+                    break;
+                case "Normal":
+                    towerScript.ChangeDamage(true);
+                    break;
+                default:
+                    break;
+
+            }
+        }
+        else
+        {
+            fireRate = abnormalFireRate;
+            switch (Mytag)
+            {
+                case "Poison":
+                    towerScript.ChangeDamage(false); ;
+                    break;
+                case "Explosive":
+                    explosiveTowerScript.ChangeDamage(false);
+                    break;
+                case "Normal":
+                    towerScript.ChangeDamage(false);
+                    break;
+                default:
+                    break;
+
+            }
+            this.gameObject.GetComponent<ParticleSystem>().Play();
+        }
+    }
 }

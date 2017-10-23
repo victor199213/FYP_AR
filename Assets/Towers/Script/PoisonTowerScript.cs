@@ -21,6 +21,8 @@ public class PoisonTowerScript : MonoBehaviour
 
     public Animator anim;
     public GameObject aimTracking;
+    int standardDamage;
+    int abnormalDamage = 10;
 
     enum FSM
     {
@@ -34,6 +36,8 @@ public class PoisonTowerScript : MonoBehaviour
         turretState = FSM.IDLE;
         maxHP = hp;
         disableParticles();
+        standardDamage = damage;
+
     }
 
     void Update()
@@ -138,5 +142,18 @@ public class PoisonTowerScript : MonoBehaviour
     void disableParticles()
     {
         this.gameObject.GetComponent<ParticleSystem>().Stop();
+    }
+
+
+    public void ChangeDamage(bool standard)
+    {
+        if (standard)
+        {
+            damage = standardDamage;
+        }
+        else
+        {
+            damage = abnormalDamage;
+        }
     }
 }
