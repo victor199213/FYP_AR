@@ -156,7 +156,7 @@ public class Shooting : MonoBehaviour
             switch (Mytag)
             {
                 case "Poison":
-                    towerScript.ChangeDamage(true); ;
+                    poisonTowerScript.ChangeDamage(true); ;
                     break;
                 case "Explosive":
                     explosiveTowerScript.ChangeDamage(true);
@@ -175,7 +175,7 @@ public class Shooting : MonoBehaviour
             switch (Mytag)
             {
                 case "Poison":
-                    towerScript.ChangeDamage(false); ;
+                    poisonTowerScript.ChangeDamage(false); ;
                     break;
                 case "Explosive":
                     explosiveTowerScript.ChangeDamage(false);
