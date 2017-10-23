@@ -66,6 +66,8 @@ public class PoisonTowerScript : MonoBehaviour
             towerTop.GetComponent<SkinnedMeshRenderer>().sharedMesh = destroyed;
             anim.SetInteger("state", 2);
             turretState = FSM.DEAD;
+            aimTracking.transform.eulerAngles = new Vector3(0, 0, 0);
+            aimTracking.transform.localPosition = new Vector3(0, -0.017f, 0);
             Shooting shoot = this.GetComponent<Shooting>();
             shoot.fireReady = false;
             aimTracking.GetComponent<TrackingSystem>().enabled = false;

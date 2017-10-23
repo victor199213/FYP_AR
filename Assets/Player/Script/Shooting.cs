@@ -19,7 +19,8 @@ public class Shooting : MonoBehaviour
     [HideInInspector]
     public bool fireReady = false;
 
-    float standardFireRate;
+    [HideInInspector]
+    public float standardFireRate;
     float abnormalFireRate = 0.1f;
     string Mytag;
     PoisonTowerScript poisonTowerScript;
