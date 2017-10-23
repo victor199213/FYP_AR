@@ -152,17 +152,19 @@ public class Shooting : MonoBehaviour
         {
             fireRate = standardFireRate;
 
-            this.gameObject.GetComponent<ParticleSystem>().Stop();
             switch (Mytag)
             {
                 case "Poison":
-                    poisonTowerScript.ChangeDamage(true); ;
+                    poisonTowerScript.ChangeDamage(true);
+                    this.gameObject.GetComponent<ParticleSystem>().Stop();
                     break;
                 case "Explosive":
                     explosiveTowerScript.ChangeDamage(true);
+                    this.gameObject.GetComponent<ParticleSystem>().Stop();
                     break;
                 case "Normal":
                     towerScript.ChangeDamage(true);
+                    this.gameObject.GetComponent<ParticleSystem>().Stop();
                     break;
                 default:
                     break;
@@ -175,19 +177,21 @@ public class Shooting : MonoBehaviour
             switch (Mytag)
             {
                 case "Poison":
-                    poisonTowerScript.ChangeDamage(false); ;
+                    poisonTowerScript.ChangeDamage(false);
+                    this.gameObject.GetComponent<ParticleSystem>().Play();
                     break;
                 case "Explosive":
                     explosiveTowerScript.ChangeDamage(false);
+                    this.gameObject.GetComponent<ParticleSystem>().Play();
                     break;
                 case "Normal":
                     towerScript.ChangeDamage(false);
+                    this.gameObject.GetComponent<ParticleSystem>().Play();
                     break;
                 default:
                     break;
 
             }
-            this.gameObject.GetComponent<ParticleSystem>().Play();
         }
     }
 }
