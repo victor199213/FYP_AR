@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
     private bool poisoned;
     private float poisonTimer;
     public int deathTimer; // For death animation
+    float resetTimer;
 
     void Start()
     {
@@ -42,6 +43,7 @@ public class Enemy : MonoBehaviour
         playerAble = GameObject.FindWithTag(attackTag);
         poisoned = false;
         poisonTimer = 0.0f;
+        resetTimer = 0;
     }
 
     void Update()
@@ -196,6 +198,7 @@ public class Enemy : MonoBehaviour
 
     void Objective()
     {
+        resetTimer = 0;
         agentObjective.isStopped = false;
         agentObjective.SetDestination(coreObjective.transform.position);
     }
@@ -240,11 +243,13 @@ public class Enemy : MonoBehaviour
         agentObjective.isStopped = false;
         agentObjective.SetDestination(playerAble.transform.position);
 
+        resetTimer += Time.deltaTime * 1;
+
         if (dis <= attackDistance)
         {
             enemyState = FSM.ATTACK;
         }
-        if (dis > disengageDistance)
+        if (dis > disengageDistance || resetTimer >= 10)
         {
             enemyState = FSM.OBJECTIVE;
         }
@@ -252,11 +257,12 @@ public class Enemy : MonoBehaviour
 
     void Attack()
     {
+        resetTimer += Time.deltaTime * 1;
         if (dis <= attackDistance)
         {
             agentObjective.isStopped = true;
         }
-        if (dis > disengageDistance)
+        if (dis > disengageDistance || resetTimer >= 10)
         {
             enemyState = FSM.OBJECTIVE;
         }

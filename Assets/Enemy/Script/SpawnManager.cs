@@ -4,7 +4,7 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject enemy;
     public GameObject enemy2;
-    public float spawnTime = 5f;           
+    public float spawnTime;           
     public Transform[] spawnPoints;
     public int totalWave;
     public float waveDownTime;
@@ -14,6 +14,8 @@ public class SpawnManager : MonoBehaviour
     private int waveCounter;
     private bool waveSwitch;
     private float TmpSpawnTimer;
+    private float SmallDelay;
+    private int spawnArea;
 
     public TextMesh timeLeftDisplay;
 
@@ -33,6 +35,7 @@ public class SpawnManager : MonoBehaviour
         waveSwitch = true;
         TmpSpawnTimer = 0;
         gameWin = false;
+        spawnArea = 1;
     }
 
     private void Update()
@@ -45,15 +48,60 @@ public class SpawnManager : MonoBehaviour
         if (waveSwitch == true)
         {
             TmpSpawnTimer += Time.deltaTime * 1;
-            if (TmpSpawnTimer >= spawnTime)
+            SmallDelay += Time.deltaTime * 1;
+
+            if (TmpSpawnTimer >= spawnTime && SmallDelay <= 5)
             {
-                int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-                //int spawnPointIndex2 = Random.Range(0, spawnPoints.Length);
-                var parent = Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-                //var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
-                parent.transform.parent = gameObject.transform;
-                //parent2.transform.parent = gameObject.transform;
+
+                switch (spawnArea)
+                {
+                    case 1:
+                        {
+                            int spawnPointIndex = Random.Range(0, 2);
+                            //int spawnPointIndex2 = Random.Range(0, spawnPoints.Length);
+                            var parent = Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+                            //var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
+                            parent.transform.parent = gameObject.transform;
+                            //parent2.transform.parent = gameObject.transform;
+                            break;
+                        }
+                    case 2:
+                        {
+                            int spawnPointIndex = Random.Range(3, 5);
+                            //int spawnPointIndex2 = Random.Range(0, spawnPoints.Length);
+                            var parent = Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+                            //var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
+                            parent.transform.parent = gameObject.transform;
+                            //parent2.transform.parent = gameObject.transform;
+                            break;
+                        }
+                    case 3:
+                        {
+                            int spawnPointIndex = Random.Range(6, 8);
+                            //int spawnPointIndex2 = Random.Range(0, spawnPoints.Length);
+                            var parent = Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+                            //var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
+                            parent.transform.parent = gameObject.transform;
+                            //parent2.transform.parent = gameObject.transform;
+                            break;
+                        }
+                    case 4:
+                        {
+                            int spawnPointIndex = Random.Range(9, 11);
+                            //int spawnPointIndex2 = Random.Range(0, spawnPoints.Length);
+                            var parent = Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+                            //var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
+                            parent.transform.parent = gameObject.transform;
+                            //parent2.transform.parent = gameObject.transform;
+                            break;
+                        }
+                }
                 TmpSpawnTimer = 0;
+            }
+            if (SmallDelay >= 15)
+            {
+                spawnArea = Random.Range(1, 5);
+                SmallDelay = 0;
             }
 
         }
