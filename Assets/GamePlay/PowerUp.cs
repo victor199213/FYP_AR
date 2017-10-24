@@ -32,14 +32,14 @@ public class PowerUp : MonoBehaviour {
 		
 	}
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.gameObject.tag == "turret")
-        {
-            collision.collider.gameObject.GetComponentInChildren<Shooting>().standardFireRate -= 0.1f;
-            //collision.collider.gameObject.transform.position = new Vector3(999, 999, 999);
-            Debug.Log(collision.collider.gameObject.name + " " + collision.collider.gameObject.tag);
-            Destroy(this.gameObject);
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.collider.gameObject.tag == "turret")
+    //    {
+    //        collision.collider.gameObject.GetComponentInChildren<Shooting>().standardFireRate -= 0.1f;
+    //        //collision.collider.gameObject.transform.position = new Vector3(999, 999, 999);
+    //        Debug.Log(collision.collider.gameObject.name + " " + collision.collider.gameObject.tag);
+    //        Destroy(this.gameObject);
+    //    }
+    //}
 }

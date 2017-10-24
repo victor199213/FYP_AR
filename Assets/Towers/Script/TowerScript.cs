@@ -7,7 +7,8 @@ public class TowerScript : MonoBehaviour
 {
 
     public float hp;
-    private float maxHP;
+    [HideInInspector]
+    public float maxHP;
     public int firerate;
     public int damage;
     FSM turretState;
@@ -22,7 +23,8 @@ public class TowerScript : MonoBehaviour
     public GameObject aimTracking;
 
     public Animator anim;
-    int standardDamage;
+    [HideInInspector]
+    public int standardDamage;
     int abnormalDamage = 10;
 
     enum FSM

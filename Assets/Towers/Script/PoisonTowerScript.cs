@@ -7,7 +7,8 @@ public class PoisonTowerScript : MonoBehaviour
 {
 
     public float hp;
-    private float maxHP;
+    [HideInInspector]
+    public float maxHP;
     public int firerate;
     public int damage;
     FSM turretState;
@@ -21,7 +22,8 @@ public class PoisonTowerScript : MonoBehaviour
 
     public Animator anim;
     public GameObject aimTracking;
-    int standardDamage;
+    [HideInInspector]
+    public int standardDamage;
     int abnormalDamage = 10;
 
     enum FSM
