@@ -57,7 +57,7 @@ public class SpawnManager : MonoBehaviour
                 {
                     case 1:
                         {
-                            int spawnPointIndex = Random.Range(0, 2);
+                            int spawnPointIndex = Random.Range(0, 3);
                             //int spawnPointIndex2 = Random.Range(0, spawnPoints.Length);
                             var parent = Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
                             //var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
@@ -67,7 +67,7 @@ public class SpawnManager : MonoBehaviour
                         }
                     case 2:
                         {
-                            int spawnPointIndex = Random.Range(3, 5);
+                            int spawnPointIndex = Random.Range(3, 6);
                             //int spawnPointIndex2 = Random.Range(0, spawnPoints.Length);
                             var parent = Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
                             //var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
@@ -77,7 +77,7 @@ public class SpawnManager : MonoBehaviour
                         }
                     case 3:
                         {
-                            int spawnPointIndex = Random.Range(6, 8);
+                            int spawnPointIndex = Random.Range(6, 9);
                             //int spawnPointIndex2 = Random.Range(0, spawnPoints.Length);
                             var parent = Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
                             //var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
@@ -87,7 +87,7 @@ public class SpawnManager : MonoBehaviour
                         }
                     case 4:
                         {
-                            int spawnPointIndex = Random.Range(9, 11);
+                            int spawnPointIndex = Random.Range(9, 12);
                             //int spawnPointIndex2 = Random.Range(0, spawnPoints.Length);
                             var parent = Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
                             //var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
