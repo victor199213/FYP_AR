@@ -15,6 +15,7 @@ public class Shooting : MonoBehaviour
     GameObject global;
     public Animator anim;
     GameObject closestPlayer;
+    private float dis;
 
     [HideInInspector]
     public bool fireReady = false;
@@ -55,41 +56,49 @@ public class Shooting : MonoBehaviour
 
         nearTarget = FindClosestPlayer();
 
-        float dis = Vector3.Distance(nearTarget.transform.position, this.transform.position);
-
-        if (fireTimer >= fireRate && fireReady == true && (nearTarget.transform.position != Vector3.zero))
+        if(GameObject.FindWithTag("Enemy") != null)
         {
-            float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(nearTarget.transform.position - transform.position));
-            if(angle < fieldOfView)
+            dis = Vector3.Distance(nearTarget.transform.position, this.transform.position);
+
+            if (fireTimer >= fireRate && fireReady == true && (nearTarget.transform.position != Vector3.zero))
             {
-                if (dis < detectionDistance)
+                float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(nearTarget.transform.position - transform.position));
+                if (angle < fieldOfView)
                 {
-                    SpawnBullet();
-                    fireTimer = 0;
-                    if(anim)
+                    if (dis < detectionDistance)
                     {
-                        anim.SetInteger("state", 1);
+                        SpawnBullet();
+                        fireTimer = 0;
+                        if (anim)
+                        {
+                            anim.SetInteger("state", 1);
+                        }
+                    }
+                    else
+                    {
+                        anim.SetInteger("state", 0);
                     }
                 }
-                else
+            }
+            else if (anim && fireTimer < fireRate)
+            {
+                //anim.SetInteger("state", 0);
+            }
+
+            if (Mytag == "Normal")
+            {
+                if (GameObject.Find("Poison") != null)
                 {
-                    anim.SetInteger("state", 0);
+                    Debug.Log(Vector3.Distance(GameObject.Find("Poison").transform.position, this.transform.position));
+
                 }
             }
         }
-        else if (anim && fireTimer < fireRate)
+        else
         {
-            //anim.SetInteger("state", 0);
+            dis = 0;
         }
-
-        if (Mytag == "Normal")
-        {
-            if (GameObject.Find("Poison") != null)
-            {
-                Debug.Log(Vector3.Distance(GameObject.Find("Poison").transform.position, this.transform.position));
-
-            }
-        }
+   
     }
 
     void SpawnBullet()

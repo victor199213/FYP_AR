@@ -14,6 +14,8 @@ public class EnemyShooting : MonoBehaviour
     List<GameObject> lastBullet = new List<GameObject>();
     GameObject nearTarget = null;
     GameObject global;
+    private float dis;
+
 
     [HideInInspector]
     public bool fireReady = false;
@@ -31,19 +33,25 @@ public class EnemyShooting : MonoBehaviour
 
         nearTarget = FindClosestPlayer(target);
 
-        float dis = Vector3.Distance(nearTarget.transform.position, this.transform.position);
-
-        if (fireTimer >= fireRate && fireReady == true)
+        if (GameObject.FindWithTag("Enemy") != null)
         {
-            float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position));
-            if (angle < fieldOfView)
+            dis = Vector3.Distance(nearTarget.transform.position, this.transform.position);
+            if (fireTimer >= fireRate && fireReady == true)
             {
-                if (dis < 10)
+                float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position));
+                if (angle < fieldOfView)
                 {
-                    SpawnBullet();
-                    fireTimer = 0;
+                    if (dis < 10)
+                    {
+                        SpawnBullet();
+                        fireTimer = 0;
+                    }
                 }
             }
+        }
+        else
+        {
+            dis = 0;
         }
     }
 

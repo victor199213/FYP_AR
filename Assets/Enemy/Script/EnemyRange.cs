@@ -33,6 +33,8 @@ public class EnemyRange : MonoBehaviour
     private bool poisoned;
     private float poisonTimer;
     public int deathTimer; // For death animation
+    float resetTimer;
+
 
     void Start()
     {
@@ -41,7 +43,7 @@ public class EnemyRange : MonoBehaviour
         playerAble = GameObject.FindWithTag(attackTag);
         poisoned = false;
         poisonTimer = 0.0f;
-
+        resetTimer = 0;
     }
 
     void Update()
@@ -148,6 +150,7 @@ public class EnemyRange : MonoBehaviour
 
     void Objective()
     {
+        resetTimer = 0;
         agentObjective.isStopped = false;
         agentObjective.SetDestination(coreObjective.transform.position);
     }
@@ -190,6 +193,7 @@ public class EnemyRange : MonoBehaviour
     {
         EnemyShooting shoot = this.GetComponent<EnemyShooting>();
         shoot.fireReady = true;
+        resetTimer += Time.deltaTime * 1;
         if (dis < disengageDistance)
         {
             if (m_lastKnownPosition != nearTarget.transform.position)
@@ -203,7 +207,7 @@ public class EnemyRange : MonoBehaviour
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, m_lookAtRotation, trackingSpeed * Time.deltaTime);
             }
         }
-        if (dis > disengageDistance)
+        if (dis > disengageDistance || resetTimer >= 10)
         {
             enemyState = FSM.OBJECTIVE;
             shoot.fireReady = false;
