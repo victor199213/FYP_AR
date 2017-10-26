@@ -234,6 +234,7 @@ public class Enemy : MonoBehaviour
             }
             if (aggroDuration <= tempTime)
             {
+                anim.SetBool("Aggro", false);
                 enemyState = FSM.CHASE;
                 tempTime = 0;
             }
@@ -255,10 +256,12 @@ public class Enemy : MonoBehaviour
 
         if (dis <= attackDistance)
         {
+            anim.SetBool("Aggro", false);
             enemyState = FSM.ATTACK;
         }
         if (dis > disengageDistance || resetTimer >= 10)
         {
+            anim.SetBool("Aggro", false);
             enemyState = FSM.OBJECTIVE;
         }
     }
@@ -274,6 +277,7 @@ public class Enemy : MonoBehaviour
         }
         if (dis > disengageDistance || resetTimer >= 10)
         {
+            anim.SetBool("Aggro", false);
             enemyState = FSM.OBJECTIVE;
         }
     }

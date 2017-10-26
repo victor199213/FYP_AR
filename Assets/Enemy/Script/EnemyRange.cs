@@ -34,6 +34,7 @@ public class EnemyRange : MonoBehaviour
     private float poisonTimer;
     public int deathTimer; // For death animation
     float resetTimer;
+    Animator anim;
 
 
     void Start()
@@ -44,6 +45,7 @@ public class EnemyRange : MonoBehaviour
         poisoned = false;
         poisonTimer = 0.0f;
         resetTimer = 0;
+        anim = gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -150,6 +152,8 @@ public class EnemyRange : MonoBehaviour
 
     void Objective()
     {
+        anim.SetBool("Aggro", false);
+        anim.SetBool("Walk", true);
         resetTimer = 0;
         agentObjective.isStopped = false;
         agentObjective.SetDestination(coreObjective.transform.position);
@@ -157,6 +161,7 @@ public class EnemyRange : MonoBehaviour
 
     void Aggro()
     {
+        anim.SetBool("Aggro", true);
         tempTime += Time.deltaTime;
 
         agentObjective.isStopped = true;
@@ -191,6 +196,9 @@ public class EnemyRange : MonoBehaviour
 
     void Attack()
     {
+        anim.SetBool("Walk", false);
+        anim.SetBool("Attack", true);
+
         EnemyShooting shoot = this.GetComponent<EnemyShooting>();
         shoot.fireReady = true;
         resetTimer += Time.deltaTime * 1;
@@ -216,6 +224,7 @@ public class EnemyRange : MonoBehaviour
 
     void Dead()
     {
+        anim.SetBool("Dead", true);
         deathTimer -= 1;
         if(deathTimer <= 0)
         {
