@@ -4,6 +4,8 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject enemy;
     public GameObject enemy2;
+    public GameObject enemy3;
+    public GameObject enemy4;
     public float spawnTime;           
     public Transform[] spawnPoints;
     public int totalWave;
@@ -58,41 +60,65 @@ public class SpawnManager : MonoBehaviour
                     case 1:
                         {
                             int spawnPointIndex = Random.Range(0, 3);
-                            //int spawnPointIndex2 = Random.Range(0, spawnPoints.Length);
+                            int spawnPointIndex2 = Random.Range(0, 3);
+                            int spawnPointIndex3 = Random.Range(0, 3);
+                            int spawnPointIndex4 = Random.Range(0, 3);
                             var parent = Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-                            //var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
+                            var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
+                            var parent3 = Instantiate(enemy3, spawnPoints[spawnPointIndex3].position, spawnPoints[spawnPointIndex3].rotation);
+                            var parent4 = Instantiate(enemy4, spawnPoints[spawnPointIndex4].position, spawnPoints[spawnPointIndex4].rotation);
                             parent.transform.parent = gameObject.transform;
-                            //parent2.transform.parent = gameObject.transform;
+                            parent2.transform.parent = gameObject.transform;
+                            parent3.transform.parent = gameObject.transform;
+                            parent4.transform.parent = gameObject.transform;
                             break;
                         }
                     case 2:
                         {
                             int spawnPointIndex = Random.Range(3, 6);
-                            //int spawnPointIndex2 = Random.Range(0, spawnPoints.Length);
+                            int spawnPointIndex2 = Random.Range(3, 6);
+                            int spawnPointIndex3 = Random.Range(3, 6);
+                            int spawnPointIndex4 = Random.Range(3, 6);
                             var parent = Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-                            //var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
+                            var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
+                            var parent3 = Instantiate(enemy3, spawnPoints[spawnPointIndex3].position, spawnPoints[spawnPointIndex3].rotation);
+                            var parent4 = Instantiate(enemy4, spawnPoints[spawnPointIndex4].position, spawnPoints[spawnPointIndex4].rotation);
                             parent.transform.parent = gameObject.transform;
-                            //parent2.transform.parent = gameObject.transform;
+                            parent2.transform.parent = gameObject.transform;
+                            parent3.transform.parent = gameObject.transform;
+                            parent4.transform.parent = gameObject.transform;
                             break;
                         }
                     case 3:
                         {
                             int spawnPointIndex = Random.Range(6, 9);
-                            //int spawnPointIndex2 = Random.Range(0, spawnPoints.Length);
+                            int spawnPointIndex2 = Random.Range(6, 9);
+                            int spawnPointIndex3 = Random.Range(6, 9);
+                            int spawnPointIndex4 = Random.Range(6, 9);
                             var parent = Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-                            //var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
+                            var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
+                            var parent3 = Instantiate(enemy3, spawnPoints[spawnPointIndex3].position, spawnPoints[spawnPointIndex3].rotation);
+                            var parent4 = Instantiate(enemy4, spawnPoints[spawnPointIndex4].position, spawnPoints[spawnPointIndex4].rotation);
                             parent.transform.parent = gameObject.transform;
-                            //parent2.transform.parent = gameObject.transform;
+                            parent2.transform.parent = gameObject.transform;
+                            parent3.transform.parent = gameObject.transform;
+                            parent4.transform.parent = gameObject.transform;
                             break;
                         }
                     case 4:
                         {
-                            int spawnPointIndex = Random.Range(9, 12);
-                            //int spawnPointIndex2 = Random.Range(0, spawnPoints.Length);
+                            int spawnPointIndex = Random.Range(9, spawnPoints.Length);
+                            int spawnPointIndex2 = Random.Range(0, spawnPoints.Length);
+                            int spawnPointIndex3 = Random.Range(0, spawnPoints.Length);
+                            int spawnPointIndex4 = Random.Range(0, spawnPoints.Length);
                             var parent = Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-                            //var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
+                            var parent2 = Instantiate(enemy2, spawnPoints[spawnPointIndex2].position, spawnPoints[spawnPointIndex2].rotation);
+                            var parent3 = Instantiate(enemy3, spawnPoints[spawnPointIndex3].position, spawnPoints[spawnPointIndex3].rotation);
+                            var parent4 = Instantiate(enemy4, spawnPoints[spawnPointIndex4].position, spawnPoints[spawnPointIndex4].rotation);
                             parent.transform.parent = gameObject.transform;
-                            //parent2.transform.parent = gameObject.transform;
+                            parent2.transform.parent = gameObject.transform;
+                            parent3.transform.parent = gameObject.transform;
+                            parent4.transform.parent = gameObject.transform;
                             break;
                         }
                 }
