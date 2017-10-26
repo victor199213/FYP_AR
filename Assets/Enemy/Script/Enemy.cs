@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     private float poisonTimer;
     public int deathTimer; // For death animation
     float resetTimer;
+    Animator anim;
 
     void Start()
     {
@@ -44,6 +45,7 @@ public class Enemy : MonoBehaviour
         poisoned = false;
         poisonTimer = 0.0f;
         resetTimer = 0;
+        anim = gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -198,6 +200,8 @@ public class Enemy : MonoBehaviour
 
     void Objective()
     {
+        anim.SetBool("Walk",true);
+
         resetTimer = 0;
         agentObjective.isStopped = false;
         agentObjective.SetDestination(coreObjective.transform.position);
@@ -205,6 +209,8 @@ public class Enemy : MonoBehaviour
 
     void Aggro()
     {
+        anim.SetBool("Aggro", true);
+
         tempTime += Time.deltaTime;
 
         agentObjective.isStopped = true;
@@ -240,6 +246,8 @@ public class Enemy : MonoBehaviour
 
     void Chase()
     {
+        anim.SetBool("Run", true);
+
         agentObjective.isStopped = false;
         agentObjective.SetDestination(playerAble.transform.position);
 
@@ -257,6 +265,8 @@ public class Enemy : MonoBehaviour
 
     void Attack()
     {
+        anim.SetBool("Attack", true);
+
         resetTimer += Time.deltaTime * 1;
         if (dis <= attackDistance)
         {
@@ -270,6 +280,8 @@ public class Enemy : MonoBehaviour
 
     void Dead()
     {
+        anim.SetBool("Dead", true);
+
         deathTimer -= 1;
         if (deathTimer <= 0)
         {
