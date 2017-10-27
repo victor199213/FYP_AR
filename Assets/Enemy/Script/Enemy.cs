@@ -204,6 +204,7 @@ public class Enemy : MonoBehaviour
 
     void Objective()
     {
+        anim.SetBool("Aggro", false);
         anim.SetBool("Walk",true);
 
         resetTimer = 0;
@@ -238,7 +239,6 @@ public class Enemy : MonoBehaviour
             }
             if (aggroDuration <= tempTime)
             {
-                anim.SetBool("Aggro", false);
                 enemyState = FSM.CHASE;
                 tempTime = 0;
             }
@@ -260,18 +260,17 @@ public class Enemy : MonoBehaviour
 
         if (dis <= attackDistance)
         {
-            anim.SetBool("Aggro", false);
             enemyState = FSM.ATTACK;
         }
         if (dis > disengageDistance || resetTimer >= 10)
         {
-            anim.SetBool("Aggro", false);
             enemyState = FSM.OBJECTIVE;
         }
     }
 
     void Attack()
     {
+        anim.SetBool("Walk", false);
         anim.SetBool("Attack", true);
 
         resetTimer += Time.deltaTime * 1;
@@ -281,7 +280,6 @@ public class Enemy : MonoBehaviour
         }
         if (dis > disengageDistance || resetTimer >= 10)
         {
-            anim.SetBool("Aggro", false);
             enemyState = FSM.OBJECTIVE;
         }
     }
