@@ -37,6 +37,10 @@ public class Enemy : MonoBehaviour
     float resetTimer;
     Animator anim;
 
+    public int powerUpDropChance = 20;
+    public GameObject powerUp;
+    private GameObject Terrain;
+
     void Start()
     {
         agentObjective = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -46,11 +50,11 @@ public class Enemy : MonoBehaviour
         poisonTimer = 0.0f;
         resetTimer = 0;
         anim = gameObject.GetComponent<Animator>();
+        Terrain = GameObject.FindGameObjectWithTag("Global");
     }
 
     void Update()
     {
-
             dis = Vector3.Distance(this.transform.position, playerAble.transform.position);
             switch (enemyState)
             {
@@ -289,6 +293,10 @@ public class Enemy : MonoBehaviour
         deathTimer -= 1;
         if (deathTimer <= 0)
         {
+            if(powerUp && Terrain && Random.Range(1,powerUpDropChance) == 1)
+            {
+                Instantiate(powerUp, transform.position, transform.rotation, Terrain.transform);
+            }
             Destroy(this.gameObject);
         }
     }

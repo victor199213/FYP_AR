@@ -36,6 +36,9 @@ public class EnemyRange : MonoBehaviour
     float resetTimer;
     Animator anim;
 
+    public int powerUpDropChance = 20;
+    public GameObject powerUp;
+    private GameObject Terrain;
 
     void Start()
     {
@@ -46,6 +49,7 @@ public class EnemyRange : MonoBehaviour
         poisonTimer = 0.0f;
         resetTimer = 0;
         anim = gameObject.GetComponent<Animator>();
+        Terrain = GameObject.FindGameObjectWithTag("Global");
     }
 
     void Update()
@@ -228,6 +232,10 @@ public class EnemyRange : MonoBehaviour
         deathTimer -= 1;
         if(deathTimer <= 0)
         {
+            if (powerUp && Terrain && Random.Range(1, powerUpDropChance) == 1)
+            {
+                Instantiate(powerUp, transform.position, transform.rotation, Terrain.transform);
+            }
             Destroy(this.gameObject);
         }
     }
