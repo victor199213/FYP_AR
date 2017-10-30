@@ -131,10 +131,6 @@ public class EnemyRange : MonoBehaviour
             GameObject player = GameObject.FindWithTag("Player");
             Player tempPlayer = player.GetComponent<Player>();
             hp -= tempPlayer.damage;
-            if (enemyState == FSM.OBJECTIVE)
-            {
-                enemyState = FSM.AGGRO;
-            }
         }
 
     }
