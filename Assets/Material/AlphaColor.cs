@@ -44,6 +44,10 @@ public class AlphaColor : MonoBehaviour
         {
             this.rend.enabled = false;
         }
+        if (this.gameObject.tag == "enemybulletSpawn")
+        {
+            this.rend.enabled = false;
+        }
     }
 
 }
