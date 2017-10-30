@@ -18,7 +18,7 @@ public class losePopupScript : MonoBehaviour
     void Update()
     {
 
-        transform.position = new Vector3(0, transform.position.y + Mathf.Sin(Mathf.Deg2Rad * timer) * 0.1f, 0);
+        transform.position = new Vector3(transform.position.x, transform.position.y + Mathf.Sin(Mathf.Deg2Rad * timer) * 0.1f, 10);
         if (timer > 0)
         {
             timer--;

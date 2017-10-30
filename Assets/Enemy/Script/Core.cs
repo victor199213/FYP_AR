@@ -28,9 +28,9 @@ public class Core : MonoBehaviour
         coreStage3 = (hp / 100) * 30;
         gameLose = false;
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
     { 
 		if(hp <= coreStage3)
         {
@@ -42,7 +42,7 @@ public class Core : MonoBehaviour
             if (spawnManager.GetComponent<SpawnManager>().gameWin == false && gameLose == false)
             {
                 gameLose = true;
-                Instantiate(losePopup, new Vector3(0, 5.0f, 0), this.transform.rotation, this.transform);
+                Instantiate(losePopup);
             }
         }
     }
