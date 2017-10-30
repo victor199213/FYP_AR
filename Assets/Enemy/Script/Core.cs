@@ -10,6 +10,7 @@ public class Core : MonoBehaviour
     public Material[] materials;
     private int textureIndex;
     public int damageToCore;
+    private int coreStage1;
     private int coreStage2;
     private int coreStage3;
 
@@ -24,6 +25,7 @@ public class Core : MonoBehaviour
         rend = GetComponent<Renderer>();
         rend.enabled = true;
         textureIndex = 0;
+        coreStage1 = (hp / 100) * 100;
         coreStage2 = (hp / 100) * 70;
         coreStage3 = (hp / 100) * 30;
         gameLose = false;
@@ -32,11 +34,21 @@ public class Core : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     { 
-		if(hp <= coreStage3)
+		if(hp <= coreStage1 && hp >= coreStage2)
+        {
+            textureIndex = 0;
+            rend.sharedMaterial = materials[textureIndex];
+        }
+        if (hp <= coreStage2 && hp >= coreStage3)
         {
             textureIndex = 1;
+            rend.sharedMaterial = materials[textureIndex];
         }
-        rend.sharedMaterial = materials[textureIndex];
+        if (hp <= coreStage3)
+        {
+            textureIndex = 2;
+            rend.sharedMaterial = materials[textureIndex];
+        }
         if(hp <= 0)
         {
             if (spawnManager.GetComponent<SpawnManager>().gameWin == false && gameLose == false)

@@ -90,7 +90,7 @@ public class EnemyRange : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name == coreObjective.name)
+        if (col.gameObject.tag == "coreObjective")
         {
             Destroy(this.gameObject);
         }
