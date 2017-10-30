@@ -54,8 +54,7 @@ public class EnemyRange : MonoBehaviour
 
     void Update()
     {
-
-            dis = Vector3.Distance(this.transform.position, playerAble.transform.position);
+        dis = Vector3.Distance(this.transform.position, playerAble.transform.position);
             switch (enemyState)
             {
                 case FSM.OBJECTIVE:
@@ -228,6 +227,9 @@ public class EnemyRange : MonoBehaviour
 
     void Dead()
     {
+        EnemyShooting shoot = this.GetComponent<EnemyShooting>();
+        shoot.fireReady = true;
+        shoot.fireReady = false;
         anim.SetBool("Dead", true);
         deathTimer -= 1;
         if(deathTimer <= 0)

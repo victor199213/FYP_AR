@@ -286,6 +286,10 @@ public class Enemy : MonoBehaviour
 
     void Dead()
     {
+        anim.SetBool("Run", false);
+        anim.SetBool("Walk", false);
+        anim.SetBool("Attack", false);
+        anim.SetBool("Aggro", false);
         anim.SetBool("Dead", true);
 
         deathTimer -= 1;
