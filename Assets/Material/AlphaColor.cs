@@ -36,10 +36,6 @@ public class AlphaColor : MonoBehaviour
         {
             this.rend.enabled = false;
         }
-        if (this.gameObject.tag == "coreObjective")
-        {
-            this.rend.enabled = false;
-        }
         if (this.gameObject.tag == "ground")
         {
             this.rend.enabled = false;
