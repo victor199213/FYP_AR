@@ -18,7 +18,13 @@ public class TowerScript : MonoBehaviour
 
     public GameObject towerTop;
     public Mesh damaged;
+    public Material damagedMat;
     public Mesh destroyed;
+    public Material destroyedMat;
+
+    public GameObject towerBottom;
+    public Material botDamagedMat;
+    public Material botDestroyedMat;
 
     public GameObject aimTracking;
 
@@ -67,6 +73,8 @@ public class TowerScript : MonoBehaviour
         if (hp <= 0)
         {
             towerTop.GetComponent<SkinnedMeshRenderer>().sharedMesh = destroyed;
+            towerTop.GetComponent<Renderer>().material = destroyedMat;
+            towerBottom.GetComponent<Renderer>().material = botDestroyedMat;
             anim.SetInteger("state", 2);
             turretState = FSM.DEAD;
             Shooting shoot = this.GetComponent<Shooting>();
@@ -76,6 +84,8 @@ public class TowerScript : MonoBehaviour
         else if (hp <= maxHP / 2)
         {
             towerTop.GetComponent<SkinnedMeshRenderer>().sharedMesh = damaged;
+            towerTop.GetComponent<Renderer>().material = damagedMat;
+            towerBottom.GetComponent<Renderer>().material = botDamagedMat;
         }
 
         if (hp > maxHP)

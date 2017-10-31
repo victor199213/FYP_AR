@@ -18,7 +18,13 @@ public class ExplosiveTowerScript : MonoBehaviour
 
     public GameObject towerTop;
     public Mesh damaged;
+    public Material damagedMat;
     public Mesh destroyed;
+    public Material destroyedMat;
+
+    public GameObject towerBot;
+    public Material botDamagedMat;
+    public Material botDestroyedMat;
 
     public Animator anim;
     public GameObject aimTracking;
@@ -66,6 +72,8 @@ public class ExplosiveTowerScript : MonoBehaviour
         if (hp <= 0)
         {
             towerTop.GetComponent<SkinnedMeshRenderer>().sharedMesh = destroyed;
+            towerTop.GetComponent<Renderer>().material = destroyedMat;
+            towerBot.GetComponent<Renderer>().material = botDestroyedMat;
             anim.SetInteger("state", 2);
             turretState = FSM.DEAD;
             Shooting shoot = this.GetComponent<Shooting>();
@@ -75,6 +83,8 @@ public class ExplosiveTowerScript : MonoBehaviour
         else if (hp <= maxHP / 2)
         {
             towerTop.GetComponent<SkinnedMeshRenderer>().sharedMesh = damaged;
+            towerTop.GetComponent<Renderer>().material = damagedMat;
+            towerBot.GetComponent<Renderer>().material = botDamagedMat;
         }
 
         if (hp > maxHP)

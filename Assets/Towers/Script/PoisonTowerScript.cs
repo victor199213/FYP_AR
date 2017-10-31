@@ -18,7 +18,9 @@ public class PoisonTowerScript : MonoBehaviour
 
     public GameObject towerTop;
     public Mesh damaged;
+    public Material damagedMat;
     public Mesh destroyed;
+    public Material destroyedMat;
 
     public Animator anim;
     public GameObject aimTracking;
@@ -66,6 +68,7 @@ public class PoisonTowerScript : MonoBehaviour
         if (hp <= 0)
         {
             towerTop.GetComponent<SkinnedMeshRenderer>().sharedMesh = destroyed;
+            towerTop.GetComponent<Renderer>().material = destroyedMat;
             anim.SetInteger("state", 2);
             turretState = FSM.DEAD;
             aimTracking.transform.eulerAngles = new Vector3(0, 0, 0);
@@ -77,6 +80,7 @@ public class PoisonTowerScript : MonoBehaviour
         else if (hp <= maxHP / 2)
         {
             towerTop.GetComponent<SkinnedMeshRenderer>().sharedMesh = damaged;
+            towerTop.GetComponent<Renderer>().material = damagedMat;
         }
 
         if (hp > maxHP)

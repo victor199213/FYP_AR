@@ -10,7 +10,7 @@ public class AlphaColor : MonoBehaviour
     void Start ()
     {
         color = GetComponent<Renderer>().material.color;
-        color.a = 0.30f;
+        color.a = 0.005f;
         rend = GetComponent<Renderer>();
         rend.material.shader = Shader.Find("Standard");
         GetComponent<Renderer>().material.SetColor("_Color", color);
