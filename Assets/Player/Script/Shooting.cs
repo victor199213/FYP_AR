@@ -82,7 +82,10 @@ public class Shooting : MonoBehaviour
             }
             else if (anim && fireTimer < fireRate)
             {
-                //anim.SetInteger("state", 0);
+                if(tag != "Player")
+                {
+                    anim.SetInteger("state", 0);
+                }
             }
 
             if (Mytag == "Normal")
