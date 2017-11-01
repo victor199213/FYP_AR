@@ -29,6 +29,7 @@ public class Core : MonoBehaviour
         coreStage2 = (hp / 100) * 70;
         coreStage3 = (hp / 100) * 30;
         gameLose = false;
+
     }
 
     // Update is called once per frame
