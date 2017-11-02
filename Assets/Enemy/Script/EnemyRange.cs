@@ -224,6 +224,8 @@ public class EnemyRange : MonoBehaviour
     void Dead()
     {
         EnemyShooting shoot = this.GetComponent<EnemyShooting>();
+        agentObjective.isStopped = false;
+        agentObjective.speed = 0;
         shoot.fireReady = true;
         shoot.fireReady = false;
         anim.SetBool("Dead", true);

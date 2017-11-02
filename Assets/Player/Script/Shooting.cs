@@ -22,7 +22,7 @@ public class Shooting : MonoBehaviour
 
     [HideInInspector]
     public float standardFireRate;
-    float abnormalFireRate = 0.1f;
+    float abnormalFireRate = 0.3f;
     string Mytag;
     PoisonTowerScript poisonTowerScript;
     ExplosiveTowerScript explosiveTowerScript;

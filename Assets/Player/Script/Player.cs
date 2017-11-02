@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
     {
         agent.destination = goal.transform.position;
         Physics.IgnoreCollision(goal.GetComponent<Collider>(), GetComponent<Collider>());
-        if (Vector3.Distance(this.gameObject.transform.position, goal.transform.position) < 10)
+        if (Vector3.Distance(this.gameObject.transform.position, goal.transform.position) < 2)
         {
             state = FSM.ATTACK;
             anim.SetInteger("state", 0);
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
     {
         Shooting shoot = this.GetComponent<Shooting>();
         shoot.fireReady = true;
-        if (Vector3.Distance(this.gameObject.transform.position, goal.transform.position) > 5)
+        if (Vector3.Distance(this.gameObject.transform.position, goal.transform.position) > 1)
         {
             state = FSM.MOVE;
             shoot.fireReady = false;

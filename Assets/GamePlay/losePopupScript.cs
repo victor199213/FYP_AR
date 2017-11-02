@@ -23,13 +23,14 @@ public class losePopupScript : MonoBehaviour
         {
             timer--;
         }
-        else if(returnMenuTimer > 0)
+        if(returnMenuTimer > 0)
         {
             returnMenuTimer--;
         }
-        else if(returnMenuTimer <= 0)
+        if(returnMenuTimer <= 0)
         {
             GameObject.Find("Load").GetComponent<Load>().LoadNextScene("TitleScene/Title");
+
         }
     }
 }

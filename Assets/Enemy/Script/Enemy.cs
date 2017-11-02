@@ -287,6 +287,8 @@ public class Enemy : MonoBehaviour
         anim.SetBool("Attack", false);
         anim.SetBool("Aggro", false);
         anim.SetBool("Dead", true);
+        agentObjective.isStopped = false;
+        agentObjective.speed = 0;
 
         deathTimer -= 1;
         if (deathTimer <= 0)
