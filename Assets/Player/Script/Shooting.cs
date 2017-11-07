@@ -28,6 +28,8 @@ public class Shooting : MonoBehaviour
     ExplosiveTowerScript explosiveTowerScript;
     TowerScript towerScript;
 
+    public GameObject towerTop;
+
     private void Start()
     {
         global = GameObject.FindWithTag("Global");
@@ -118,7 +120,11 @@ public class Shooting : MonoBehaviour
             GameObject tempBullet = Instantiate(bullet, bulletSpawn[i].transform.position, Quaternion.Euler(bulletSpawn[i].transform.forward)) as GameObject;
             tempBullet.GetComponent<BaseBullet>().FireBullet(bulletSpawn[i], nearTarget);
             tempBullet.transform.parent = global.transform;
+            if(towerTop)
+                tempBullet.transform.eulerAngles = new Vector3(0, towerTop.transform.localEulerAngles.y, 0);
             lastBullet.Add(tempBullet);
+            if(tag == "Normal")
+                Debug.Log("this: " + towerTop.transform.eulerAngles + " bullet: " + tempBullet.transform.eulerAngles);
         }
     }
 

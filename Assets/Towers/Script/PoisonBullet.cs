@@ -11,7 +11,7 @@ public class PoisonBullet : BaseBullet {
 
     private void Start()
     {
-        this.GetComponent<Renderer>().material.color = new Color(0.0f, 1.0f, 0.0f, 0.5f);
+        //this.GetComponent<Renderer>().material.color = new Color(0.0f, 1.0f, 0.0f, 0.5f);
     }
 
     void Update()
