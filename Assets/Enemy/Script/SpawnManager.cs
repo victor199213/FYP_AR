@@ -223,8 +223,9 @@ public class SpawnManager : MonoBehaviour
             if(waveDuration <= 0)
             {
                 waveDownTime -= Time.deltaTime * 1;
-
-                if(waveDownTime <= tmpWaveDownTime)
+                timeLeftDisplay.text = waveDownTime.ToString("F0");
+                timeLeftDisplay.color = Color.blue;
+                if (waveDownTime <= tmpWaveDownTime)
                 {
                     waveSwitch = false;
                 }
@@ -236,6 +237,14 @@ public class SpawnManager : MonoBehaviour
                     waveDuration = tmpWaveDuration;
                     spawnTime = spawnTime * (float)0.8;
                 }
+            }
+            else if(waveDuration > 0)
+            {
+                float tmpWaveDuration = waveDuration;
+                if (tmpWaveDuration <= 0)
+                    tmpWaveDuration = 0;
+                timeLeftDisplay.text = tmpWaveDuration.ToString("F0");
+                timeLeftDisplay.color = Color.red;
             }
         }
         if(waveCounter > totalWave)
@@ -254,6 +263,5 @@ public class SpawnManager : MonoBehaviour
         {
             waveDownTime = 0;
         }
-        timeLeftDisplay.text = waveDuration.ToString("F0");
     }
 }
