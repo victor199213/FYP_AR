@@ -1,17 +1,22 @@
 fileFormatVersion: 2
 guid: de76d7e821e63584290ce328917a4a34
-timeCreated: 1510023198
+timeCreated: 1510191902
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: pCube1
     100002: //RootNode
+    100004: Turret_AOE_Bullet:pSphere1
     400000: pCube1
     400002: //RootNode
+    400004: Turret_AOE_Bullet:pSphere1
     2300000: pCube1
+    2300002: Turret_AOE_Bullet:pSphere1
     3300000: pCube1
+    3300002: Turret_AOE_Bullet:pSphere1
     4300000: pCube1
+    4300002: Turret_AOE_Bullet:pSphere1
   materials:
     importMaterials: 1
     materialName: 0
