@@ -17,20 +17,20 @@ public class losePopupScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // move "You Lose" model upwards
         transform.position = new Vector3(transform.position.x, transform.position.y + Mathf.Sin(Mathf.Deg2Rad * timer) * 0.1f, 10);
+
         if (timer > 0)
         {
             timer--;
         }
-        if(returnMenuTimer > 0)
+        else if(returnMenuTimer > 0)
         {
             returnMenuTimer--;
         }
-        if(returnMenuTimer <= 0)
+        else if(returnMenuTimer <= 0)
         {
             GameObject.Find("Load").GetComponent<Load>().LoadNextScene("TitleScene/Title");
-
         }
     }
 }
