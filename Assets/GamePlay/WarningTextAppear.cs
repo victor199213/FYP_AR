@@ -66,12 +66,6 @@ public class WarningTextAppear : MonoBehaviour {
                 triggered = false;
             }
         }
-
-        //if (Input.GetKeyDown("space") || Input.touchCount == 3)
-        //{
-        //    Debug.Log("WARNING TRIGGERED");
-        //    triggerWarning();
-        //}
     }
 
     private void triggerWarning()

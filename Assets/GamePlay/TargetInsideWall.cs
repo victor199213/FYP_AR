@@ -13,12 +13,6 @@ public class TargetInsideWall : MonoBehaviour
         insideWall = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.gameObject.tag == "Wall")

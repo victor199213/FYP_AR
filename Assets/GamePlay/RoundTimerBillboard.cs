@@ -5,11 +5,6 @@ using UnityEngine;
 public class RoundTimerBillboard : MonoBehaviour {
 
     public GameObject ARCam;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {
