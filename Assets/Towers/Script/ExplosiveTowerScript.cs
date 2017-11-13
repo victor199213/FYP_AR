@@ -5,7 +5,7 @@ using Vuforia;
 
 public class ExplosiveTowerScript : MonoBehaviour
 {
-
+    // turret stats
     public float hp;
     [HideInInspector]
     public float maxHP;
@@ -13,25 +13,30 @@ public class ExplosiveTowerScript : MonoBehaviour
     public int damage;
     FSM turretState;
     public int towerType;
+    [HideInInspector]
+    public int standardDamage;
+    int abnormalDamage = 10;
+
+    // AR marker
     public GameObject goal;
     public GameObject tracker;
 
-    public GameObject towerTop;
+    // top damaged & destroyed models and materials
     public Mesh damaged;
     public Material damagedMat;
     public Mesh destroyed;
     public Material destroyedMat;
 
+    // bottom of the Tower and materials
     public GameObject towerBot;
     public Material botDamagedMat;
     public Material botDestroyedMat;
 
-    public Animator anim;
+    // top of the Tower
+    public GameObject towerTop;
     public GameObject aimTracking;
 
-    [HideInInspector]
-    public int standardDamage;
-    int abnormalDamage = 10;
+    public Animator anim;
 
     enum FSM
     {
