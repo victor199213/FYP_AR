@@ -2,6 +2,9 @@
 
 public class SpawnManager : MonoBehaviour
 {
+
+    //Define variable
+
     public GameObject enemy;
     public GameObject enemy2;
     public GameObject enemy3;
@@ -20,9 +23,7 @@ public class SpawnManager : MonoBehaviour
     private float tmpSmallDelay;
     public float SmallDelayDuration;
     private int spawnArea;
-
     public TextMesh timeLeftDisplay;
-
     public GameObject winPopup;
     public GameObject core;
     [HideInInspector]
@@ -30,9 +31,8 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
+        //initializing variable
         InvokeRepeating("Spawn", spawnTime, spawnTime);
- 
-        //InvokeRepeating("Spawn", spawnTime, spawnTime);
         tmpWaveDownTime = waveDownTime;
         tmpWaveDuration = waveDuration;
         waveCounter = 1;
@@ -45,6 +45,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
+        //call spawn function
         Spawn();
     }
 
@@ -52,13 +53,14 @@ public class SpawnManager : MonoBehaviour
     {
         if (waveSwitch == true)
         {
+            //how it spawn and how much small delay inbetween wave 
             TmpSpawnTimer += Time.deltaTime * 1;
             SmallDelay -= Time.deltaTime * 1;
 
 
             if (TmpSpawnTimer >= spawnTime && SmallDelay >= 0)
             {
-
+                //random spawn spawn area and location
                 switch (spawnArea)
                 {
                     case 1:
@@ -70,6 +72,7 @@ public class SpawnManager : MonoBehaviour
 
                             if (SmallDelay <= 1 && SmallDelay >= 0)
                             {
+                                // last seconds it spawn a special enemy  
                                 switch (typeSpawn)
                                 {
                                     case 1:
@@ -107,6 +110,7 @@ public class SpawnManager : MonoBehaviour
 
                             if (SmallDelay <= 1 && SmallDelay >= 0)
                             {
+                                // last seconds it spawn a special enemy  
                                 switch (typeSpawn)
                                 {
                                     case 1:
@@ -143,6 +147,7 @@ public class SpawnManager : MonoBehaviour
 
                             if (SmallDelay <= 1 && SmallDelay >= 0)
                             {
+                                // last seconds it spawn a special enemy  
                                 switch (typeSpawn)
                                 {
                                     case 1:
@@ -180,6 +185,7 @@ public class SpawnManager : MonoBehaviour
 
                             if (SmallDelay <= 1 && SmallDelay >= 0)
                             {
+                                // last seconds it spawn a special enemy  
                                 switch (typeSpawn)
                                 {
                                     case 1:
@@ -212,12 +218,14 @@ public class SpawnManager : MonoBehaviour
             }
             if (SmallDelay <= -SmallDelayDuration)
             {
+                //random spawn area
                 spawnArea = Random.Range(1, 5);
                 SmallDelay = tmpSmallDelay;
             }
         }
         if(waveCounter <= totalWave)
         {
+            //check total wave and wave duration of each wave
             waveDuration -= Time.deltaTime * 1;
 
             if(waveDuration <= 0)
@@ -249,6 +257,7 @@ public class SpawnManager : MonoBehaviour
         }
         if(waveCounter > totalWave)
         {
+            //check if player manage to win the game 
             if(waveSwitch == true)
             {
                 if (core.GetComponent<Core>().gameLose == false)

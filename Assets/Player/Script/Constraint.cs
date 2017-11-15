@@ -12,7 +12,8 @@ public class Constraint : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        //constraint the height of the object
         transform.position = new Vector3(transform.position.x, height, transform.position.z);
-        //transform.Rotate(new Vector3(0,0,0));
     }
 }

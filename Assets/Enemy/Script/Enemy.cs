@@ -217,7 +217,6 @@ public class Enemy : MonoBehaviour
 
         anim.SetBool("Aggro", false);
         anim.SetBool("Walk",true);
-
         resetTimer = 0;
         agentObjective.isStopped = false;
         agentObjective.SetDestination(coreObjective.transform.position);

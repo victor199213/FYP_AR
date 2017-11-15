@@ -6,6 +6,8 @@ public class FocusMode : MonoBehaviour
 {
     void Start()
     {
+        //initializing vuforia camera API
+
         var vuforia = VuforiaARController.Instance;
         vuforia.RegisterVuforiaStartedCallback(OnVuforiaStarted);
         vuforia.RegisterOnPauseCallback(OnPaused);
@@ -15,6 +17,7 @@ public class FocusMode : MonoBehaviour
 
     private void OnVuforiaStarted()
     {
+        // Set autofocus
         CameraDevice.Instance.SetFocusMode(
             CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSAUTO);
     }
@@ -22,9 +25,9 @@ public class FocusMode : MonoBehaviour
 
     private void OnPaused(bool paused)
     {
-        if (!paused) // resumed 
+        if (!paused) 
         {
-            // Set again autofocus mode when app is resumed 
+            // Set autofocus
             CameraDevice.Instance.SetFocusMode(
             CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSAUTO);
         }

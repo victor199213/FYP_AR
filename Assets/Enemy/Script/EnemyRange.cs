@@ -3,6 +3,8 @@ using System.Collections;
 
 public class EnemyRange : MonoBehaviour
 {
+    //State machine variable
+
     enum FSM
     {
         OBJECTIVE,
@@ -12,9 +14,10 @@ public class EnemyRange : MonoBehaviour
         DEAD
     };
 
+    //Define variable
+
     public UnityEngine.AI.NavMeshAgent agentObjective;
     public GameObject coreObjective;
-    //public int hp;
     public float hp;
     public int damage;
     FSM enemyState;
@@ -29,19 +32,19 @@ public class EnemyRange : MonoBehaviour
     public float aggroDuration;
     private float tempTime;
     public float trackingSpeed;
-
     private bool poisoned;
     private float poisonTimer;
     public int deathTimer; // For death animation
     float resetTimer;
     Animator anim;
-
     public int powerUpDropChance = 20;
     public GameObject powerUp;
     private GameObject Terrain;
 
     void Start()
     {
+        //initializing variable
+
         agentObjective = GetComponent<UnityEngine.AI.NavMeshAgent>();
         enemyState = FSM.OBJECTIVE;
         playerAble = GameObject.FindWithTag(attackTag);
@@ -54,9 +57,14 @@ public class EnemyRange : MonoBehaviour
 
     void Update()
     {
+        //Getting distance between enemy and turret position
+
         dis = Vector3.Distance(this.transform.position, playerAble.transform.position);
-            switch (enemyState)
-            {
+
+
+        //state machine controller
+        switch (enemyState)
+        {
                 case FSM.OBJECTIVE:
                     Objective();
                     break;
@@ -70,26 +78,30 @@ public class EnemyRange : MonoBehaviour
                     Dead();
                     break;
 
-            };
+        };
+        //damage overtime when poisoned
 
-            if (poisoned == true)
+        if (poisoned == true)
+        {
+            poisonTimer += Time.deltaTime;
+            if (poisonTimer >= 1.0f)
             {
-                poisonTimer += Time.deltaTime;
-                if (poisonTimer >= 1.0f)
-                {
-                    hp -= 1;
-                    poisonTimer -= 1.0f;
-                }
+                hp -= 1;
+                poisonTimer -= 1.0f;
             }
+        }
 
-            if (hp <= 0)
-            {
-                enemyState = FSM.DEAD;
-            }
+        //check enemy still has HP
+        if (hp <= 0)
+        {
+            enemyState = FSM.DEAD;
+        }
     }
 
     void OnCollisionEnter(Collision col)
     {
+        //Collision checking
+
         if (col.gameObject.tag == "coreObjective")
         {
             Destroy(this.gameObject);
@@ -137,6 +149,8 @@ public class EnemyRange : MonoBehaviour
 
     void OnCollisionStay(Collision col)
     {
+        //Collision checking
+
         if (col.collider.gameObject.tag == "ExplosiveTowerBullet")
         {
             GameObject tower = GameObject.FindWithTag("Explosive");
@@ -151,6 +165,8 @@ public class EnemyRange : MonoBehaviour
 
     void Objective()
     {
+        //Moving enemy towards the objective
+
         anim.SetBool("Aggro", false);
         anim.SetBool("Walk", true);
         resetTimer = 0;
@@ -160,6 +176,8 @@ public class EnemyRange : MonoBehaviour
 
     void Aggro()
     {
+        //Play animation when an turret detected and rotate to face the turret
+
         anim.SetBool("Aggro", true);
         tempTime += Time.deltaTime;
 
@@ -195,6 +213,8 @@ public class EnemyRange : MonoBehaviour
 
     void Attack()
     {
+        //Shoot the turret when near it
+
         anim.SetBool("Walk", false);
         anim.SetBool("Attack", true);
 
@@ -223,6 +243,8 @@ public class EnemyRange : MonoBehaviour
 
     void Dead()
     {
+        //Play animation when dead
+
         EnemyShooting shoot = this.GetComponent<EnemyShooting>();
         agentObjective.isStopped = false;
         agentObjective.speed = 0;
@@ -242,6 +264,8 @@ public class EnemyRange : MonoBehaviour
 
     GameObject FindClosestPlayer(GameObject closestPlayer)
     {
+        //find the closest turret
+
         GameObject[] gos = GameObject.FindGameObjectsWithTag(attackTag);
         float distance = Mathf.Infinity;
         foreach (GameObject go in gos)

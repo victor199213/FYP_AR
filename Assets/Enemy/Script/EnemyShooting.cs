@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
 {
+    //Define variable
     public float fireRate;
     public float fieldOfView;
     public GameObject bullet;
@@ -15,13 +16,12 @@ public class EnemyShooting : MonoBehaviour
     GameObject nearTarget = null;
     GameObject global;
     private float dis;
-
-
     [HideInInspector]
     public bool fireReady = false;
 
     private void Start()
     {
+        //initializing variable
         global = GameObject.FindWithTag("Global");
         target = GameObject.FindWithTag(attackTag);
     }
@@ -29,8 +29,9 @@ public class EnemyShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fireTimer += Time.deltaTime;
+        //enemy will when all condition is met and will rotate to face the turret
 
+        fireTimer += Time.deltaTime;
         nearTarget = FindClosestPlayer(target);
 
         if (GameObject.FindWithTag("Enemy") != null)
@@ -57,6 +58,7 @@ public class EnemyShooting : MonoBehaviour
 
     void SpawnBullet()
     {
+        //spawn bullet when shooting 
         if (!bullet)
         {
             return;
@@ -76,6 +78,7 @@ public class EnemyShooting : MonoBehaviour
 
     GameObject FindClosestPlayer(GameObject closestPlayer)
     {
+        //find Closest Player to the turret
         GameObject[] gos = GameObject.FindGameObjectsWithTag(attackTag);
         float distance = Mathf.Infinity;
         foreach (GameObject go in gos)
